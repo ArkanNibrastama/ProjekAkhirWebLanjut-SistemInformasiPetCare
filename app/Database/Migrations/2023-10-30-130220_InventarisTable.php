@@ -4,33 +4,20 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class productTable extends Migration
+class InventarisTable extends Migration
 {
     public function up()
     {
         $this->forge->addField([
             'id' =>[
                 'type' => 'INT',
-                'constraint' => 11,
+                'constraint' => 5,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama_product' => [
+            'nama_inventaris' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
-            ],
-            'harga_product' => [
-                'type' => 'VARCHAR',
-                'constraint' => 15,
-            ],
-            'stok_product' =>[
-                'type' => 'INT',
-                'constraint' => 15,      
-            ],
-            'foto_product' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-                'null'          => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -47,11 +34,11 @@ class productTable extends Migration
         ]);
 
         $this->forge->addKey('id', true, true);
-        $this->forge->createTable('product');
+        $this->forge->createTable('inventaris');
     }
 
     public function down()
     {
-        $this->forge->dropTable('product', true);
+        $this->forge->dropTable('inventaris', true);
     }
 }

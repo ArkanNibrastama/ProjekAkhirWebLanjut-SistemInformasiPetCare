@@ -2,7 +2,7 @@
 <?= $this->section('content'); ?>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-petcare">List Kategori Produk</h6>
+                            <h6 class="m-0 font-weight-bold text-petcare">List Service</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -10,16 +10,16 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Jenis Produk</th>
+                                            <th>Service</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php $i = 1; ?>
-                                     <?php foreach ($jproduk as $jp) : ?>
+                                     <?php foreach ($service as $s) : ?>
                                         <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= $jp['namajenis_produk']; ?></td>
+                                        <td><?= $s['nama_service']; ?></td>
                                         <td>
                                             <a href="" class="btn btn-warning btn-sm mr-2">
                                                 <i class="fas fa-pencil"></i> Edit

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class JProdukTable extends Migration
+class ServiceTable extends Migration
 {
     public function up()
     {
@@ -15,7 +15,7 @@ class JProdukTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'namajenis_produk' => [
+            'nama_service' => [
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ],
@@ -34,11 +34,11 @@ class JProdukTable extends Migration
         ]);
 
         $this->forge->addKey('id', true, true);
-        $this->forge->createTable('jenis_produk');
+        $this->forge->createTable('service');
     }
 
     public function down()
     {
-        $this->forge->dropTable('jenis_produk', true);
+        $this->forge->dropTable('service', true);
     }
 }
