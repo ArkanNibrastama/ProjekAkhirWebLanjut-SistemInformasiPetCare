@@ -1,5 +1,5 @@
-<?= $this->extend('user/layouts/app'); ?>
-<?= $this->section('content'); ?>
+<?= $this->extend('user/layouts/app2'); ?>
+<?= $this->section('contentpage'); ?>
 
     <!-- start banner -->
     <div id="carouselExampleCaptions" class="carousel slide">

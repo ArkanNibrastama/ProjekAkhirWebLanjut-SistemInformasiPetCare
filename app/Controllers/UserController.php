@@ -25,5 +25,6 @@ class UserController extends BaseController
             "title"=> "Services",
         ];
         return view("user/services", $data);
-    }   
+    }  
+     
 }
