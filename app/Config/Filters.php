@@ -39,7 +39,7 @@ class Filters extends BaseConfig
     public array $globals = [
         'before' => [
             'honeypot',
-            'login',
+            // 'login', => kalo mau enable myth/auth library uncommand this line
             // 'csrf',
             // 'invalidchars',
         ],
@@ -70,6 +70,7 @@ class Filters extends BaseConfig
      * Example:
      * 'isLoggedIn' => ['before' => ['account/*', 'profiles/*']]
      */
+
     public array $filters = [
         'login' => ['before' => ['Home/*']],
     ];

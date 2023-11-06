@@ -1,95 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - User</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <style>
-        body{
-            background-color: #EFE9DD;
-        }
-        .navbar{
-            position: fixed;
-            z-index: 3;
-            width: 100%;
-            top: 0;
-            padding: 15px;
-            padding-right: 50px;
-            /* background-color: #E4CEA0; */
-            background-color: wheat;
-            border-radius: 0px 0px 15px 15px;
-        }
-        .nav-link{
-            color: black;
-        }
-        .carousel-inner img{
-            height:85vh; 
-            object-fit: cover;
-        }
-        .wrapper{
-            width: 100%;
-            /* background-color: #D1B990; */
-            background-color: #E4CEA0;
-            margin-top: 100px;
-            padding-top: 25px;
-            padding-bottom: 35px;
-        }
-        
-        .text_link a{
-            color: lightslategrey;
-            text-decoration: none;
-        }
-        #product-card{
-            width:300px;
-            height:400px; 
-            border-radius:15px;
-        }
-
-        #product-card img{
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius:15px;
-        }
-        footer{
-            margin-top:120px; 
-            /* background-color:#E4CEA0; */
-            /* background-color:whitesmoke; */
-            background-color: wheat;
-            border-radius: 15px 15px 0px 0px;
-        }
-    </style>
-
-</head>
-<body>
-
-    <!-- start navbar -->
-    <nav class="navbar">
-        <div class="container-fluid" >
-            <a class="navbar-brand" href="#" style="font-size:32px;">
-                <img src="https://www.creativefabrica.com/wp-content/uploads/2020/09/01/Dog-paw-vector-icon-logo-design-heart-Graphics-5223218-1-1-580x387.jpg"
-                alt="Logo" width="70" height="50" class="d-inline-block align-text-top" style="margin-right:-20px; margin-top: -5px;">
-                PetCare
-            </a>
-            <ul class="nav nav-underline justify-content-end" style="font-size: 18px;">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- end navbar -->
+<?= $this->extend('user/layouts/app'); ?>
+<?= $this->section('content'); ?>
 
     <!-- start banner -->
-    <div id="carouselExampleCaptions" class="carousel slide"style="margin-top:75px;">
+    <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -126,7 +39,7 @@
             <div class="col">
                 <p>Anda dapat segera mengamankan tempat dengan cara membuat perjanjian atau booking sekarang. Dengan mengikuti langkah-langkah sederhana ini, Anda dapat memastikan bahwa jadwal Anda teratur dan tidak akan terlewatkan. Booking sekarang tidak hanya memberikan Anda kenyamanan, tetapi juga memastikan bahwa Anda mendapatkan layanan atau fasilitas yang Anda inginkan sesuai dengan waktu yang Anda inginkan. Dengan demikian, Anda dapat menghindari kerumitan dan ketidakpastian, serta memastikan pengalaman yang mulus dan memuaskan. Jadi, jangan tunda lagi, buatlah perjanjian sekarang untuk menikmati semua manfaatnya.
                 </p>
-                <button type="button" class="btn btn-info" style="color:whitesmoke; padding:8px;">Make an Appoinment Now!</button>
+                <a href="<?= base_url('/user/services') ?>" class="btn btn-info" style="color:whitesmoke; padding:8px;">Make an Appoinment Now!</a>
             </div>
         </div>
     </div>
@@ -175,7 +88,7 @@
                 </div>
             </div>
             <div class="text_link" style="margin-top:50px;">
-                <a href="#">See the details</a>
+                <a href="<?= base_url('/user/services') ?>">See the details</a>
             </div>
         </div>
     </div>
@@ -256,21 +169,9 @@
             </div>
         </div>
         <div class="text_link" style="margin-top:50px;">
-            <a href="#">Show more products</a>
+            <a href="<?= base_url('/user/products') ?>">Show more products</a>
         </div>
     </div>
     <!-- end our products section -->
 
-
-    <!-- start footer -->
-    <footer class="text-dark text-center py-3">
-        <div class="container">
-            <p>&copy; 2023 PetCare. All rights reserved.</p>
-        </div>
-    </footer>
-    <!-- end footer -->
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
-</body>
-</html>
+<?= $this->endSection(); ?>
