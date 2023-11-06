@@ -39,7 +39,7 @@ class Filters extends BaseConfig
     public array $globals = [
         'before' => [
             'honeypot',
-            // 'login', => kalo mau enable myth/auth library uncommand this line
+            // 'login', 
             // 'csrf',
             // 'invalidchars',
         ],
