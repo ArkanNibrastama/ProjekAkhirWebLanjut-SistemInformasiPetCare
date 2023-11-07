@@ -1,16 +1,19 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\JprodukModel;
-use App\Models\ProdukModel;
+use App\Models\InventarisModel;
+use App\Models\ProductModel;
+use App\Models\ServiceModel;
 class Admin extends BaseController
 {
-    public $JprodukModel;
-    public $ProdukModel;
+    public $InventarisModel;
+    public $ProductModel;
+    public $ServiceModel;
     public function __construct() 
     {
-        $this->JprodukModel = new JprodukModel ();
-        $this->ProdukModel = new ProdukModel ();
+        $this->InventarisModel = new InventarisModel ();
+        $this->ProductModel = new ProductModel ();
+        $this->ServiceModel = new ServiceModel ();
     }
     public function index(): string
     {
@@ -19,21 +22,30 @@ class Admin extends BaseController
         ];
         return view('admin/index', $data);
     }
-    public function listjproduk(): string
+    public function listInventaris(): string
     {
         $data = [
-            'title' => 'List Jenis Produk',
-            'jproduk' => $this->JprodukModel->getJproduk(),
+            'title' => 'List Jenis product',
+            'inventaris' => $this->InventarisModel->getInventaris(),
         ];
-        return view('admin/jproduk',$data);
+        return view('admin/inventaris',$data);
     }
-    public function listproduk(): string
+    public function listProduct(): string
     {
         $data = [
-            'title' => 'List Produk',
-            'produk' => $this->ProdukModel->getProduk(),
+            'title' => 'List product',
+            'product' => $this->ProductModel->getProduct(),
             
         ];
-        return view('admin/produk',$data);
+        return view('admin/product',$data);
+    }
+    public function listService(): string
+    {
+        $data = [
+            'title' => 'List service',
+            'service' => $this->ServiceModel->getService(),
+            
+        ];
+        return view('admin/service',$data);
     }
 }

@@ -2,7 +2,7 @@
 <?= $this->section('content'); ?>
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-petcare">List Produk</h6>
+                            <h6 class="m-0 font-weight-bold text-petcare">List product</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -10,24 +10,22 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Foto Produk</th>
-                                            <th>Jenis Produk</th>
-                                            <th>Nama Produk</th>
-                                            <th>Stok Produk</th>
-                                            <th>Harga Produk</th>
+                                            <th>Foto product</th>
+                                            <th>Nama product</th>
+                                            <th>Stok product</th>
+                                            <th>Harga product</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php $i = 1; ?>
-                                     <?php foreach ($produk as $p) : ?>
+                                     <?php foreach ($product as $p) : ?>
                                         <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><img src="<?= $p['foto_produk'] ?? 'https://bootdey.com/img/Content/avatar/avatar7.png' ?> ?>" alt="" height="100px" width="100px"></td>
-                                        <td><?= $p['namajenis_produk']; ?></td>
-                                        <td><?= $p['nama_produk']; ?></td>
-                                        <td><?= $p['stok_produk']; ?></td>
-                                        <td><?= $p['harga_produk']; ?></td>
+                                        <td><img src="<?= $p['foto_product'] ?? 'https://bootdey.com/img/Content/avatar/avatar7.png' ?> ?>" alt="" height="100px" width="100px"></td>
+                                        <td><?= $p['nama_product']; ?></td>
+                                        <td><?= $p['stok_product']; ?></td>
+                                        <td><?= $p['harga_product']; ?></td>
                                         <td>
                                             <a href="" class="btn btn-warning btn-sm mr-2">
                                                 <i class="fas fa-pencil"></i> Edit

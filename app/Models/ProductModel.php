@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class JprodukModel extends Model
+class productModel extends Model
 {
-    protected $table            = 'jenis_produk';
+    protected $table            = 'product';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['namajenis_produk'];
+    protected $allowedFields    = ['nama_product','harga_product','stok_product','foto_product'];
 
     // Dates
     protected $useTimestamps = false;
@@ -38,7 +38,13 @@ class JprodukModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getJproduk(){
-        return $this->findAll();
+    public function getproduct($id=null){
+        if ($id !=null) {
+
+            return $this->select('product.*')
+                ->find($id);
+        }
+        return $this->select('product.*')
+                ->findAll();
     }
 }

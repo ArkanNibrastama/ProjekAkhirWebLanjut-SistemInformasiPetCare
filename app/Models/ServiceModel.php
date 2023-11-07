@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProdukModel extends Model
+class ServiceModel extends Model
 {
-    protected $table            = 'produk';
+    protected $table            = 'service';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_produk','harga_produk','stok_produk','foto_produk','id_jenis'];
+    protected $allowedFields    = ['nama_service'];
 
     // Dates
     protected $useTimestamps = false;
@@ -38,13 +38,7 @@ class ProdukModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getProduk($id=null){
-        if ($id !=null) {
-
-            return $this->select('produk.*, jenis_produk.namajenis_produk')
-                ->join('jenis_produk', 'jenis_produk.id=produk.id_jenis')->find($id);
-        }
-        return $this->select('produk.*, jenis_produk.namajenis_produk')
-        ->join('jenis_produk','jenis_produk.id=produk.id_jenis')->findAll();
+    public function getService(){
+        return $this->findAll();
     }
 }
