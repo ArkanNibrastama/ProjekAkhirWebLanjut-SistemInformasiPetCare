@@ -9,37 +9,55 @@ class Pegawai extends BaseController
 
     public function index()
     {
-    return view ('Pegawai/index');
+        $data = [
+            'title' => 'Dashboard pegawai',
+        ];
+    return view ('Pegawai/index', $data);
 }
 
     public function produk()
     {
-    return view ('Pegawai/produk');
+        $data = [
+            'title' => 'Product',
+        ];
+    return view ('Pegawai/produk', $data);
 
     }
 
     public function inventaris()
     {
-    return view ('Pegawai/inventaris');
+        $data = [
+            'title' => 'Inventaris',
+        ];
+    return view ('Pegawai/inventaris', $data);
 
     }
-
+    
     public function confirm()
     {
-    return view ('Pegawai/confirm');
+        $data = [
+            'title' => 'Confirm Booking',
+        ];
+    return view ('Pegawai/confirm', $data);
 
     }
 
     
     public function complete()
     {
-    return view ('Pegawai/complete');
+        $data = [
+            'title' => 'Complete booking',
+        ];
+    return view ('Pegawai/complete', $data);
     
     }
 
     public function history()
     {
-    return view ('Pegawai/history');
+        $data = [
+            'title' => 'History booking',
+        ];
+    return view ('Pegawai/history', $data);
     
     }
 

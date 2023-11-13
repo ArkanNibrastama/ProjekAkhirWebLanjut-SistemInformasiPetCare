@@ -44,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/dashboard">
+                <a class="nav-link" href="/admin/">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -62,9 +62,22 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/inventaris">Inventaris</a>
-                        <a class="collapse-item" href="/product">Product</a>
-                        <a class="collapse-item" href="/service">Service</a>
+                        <a class="collapse-item" href="/admin/inventaris">Inventaris</a>
+                        <a class="collapse-item" href="/admin/product">Product</a>
+                        <a class="collapse-item" href="/admin/service">Service</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Akun</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">    
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="/admin/akun-user">User</a>
+                        <a class="collapse-item" href="/admin/akun-pegawai">Pegawai</a>
                     </div>
                 </div>
             </li>
@@ -140,7 +153,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; PetShop 2023</span>
                     </div>
                 </div>
             </footer>
@@ -171,7 +184,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="<?= base_url("logout") ?>">Logout</a>
                 </div>
             </div>
         </div>

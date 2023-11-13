@@ -4,25 +4,20 @@
 
 <head>
 
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> </title>
+    <title><?= $title;?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url("sb-admin-2/vendor/fontawesome-free/css/all.min.css") ?>" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
     <!-- Custom styles for this template-->
     <link href="<?= base_url("sb-admin-2/css/sb-admin-2.min.css") ?>" rel="stylesheet">
     
@@ -49,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?= base_url('Pegawai/dashboard')?>">
+                <a class="nav-link" href="<?= base_url('pegawai/')?>">
                     <span>Dashboard</span></a>
             </li>
 
@@ -61,28 +56,35 @@
           <a class="nav-link"> -->
           <!-- Dropdown - User Information -->
          <!-- Dropdown - User Information -->
-            <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    booking
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="<?= base_url('Pegawai/konfirmasi')?>">confirmation</a>
-    <a class="dropdown-item" href="<?= base_url('Pegawai/complete')?>">complete</a>
-    <a class="dropdown-item" href="<?= base_url('Pegawai/history')?>">history</a>
-  </div>
-</div>
+        
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-fw fa-table"></i>
+                <span>Booking</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="<?= base_url('pegawai/konfirmasi')?>">Confirmation</a>
+                    <a class="collapse-item" href="<?= base_url('pegawai/complete')?>">Complete</a>
+                    <a class="collapse-item" href="<?= base_url('pegawai/history')?>">History</a>
+                </div>
+            </div>
+        </li>
             <!-- </span> -->
         <!-- </a> -->
         <!-- </li> -->
 
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('Pegawai/produk')?>">
+          <a class="nav-link" href="<?= base_url('pegawai/produk')?>">
             <span>Produk</span></a
           >
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('/Pegawai/inventaris')?>">
+          <a class="nav-link" href="<?= base_url('/pegawai/inventaris')?>">
             <span>Inventaris</span></a
           >
         </li>
@@ -124,7 +126,7 @@
                                 <img class="img-profile rounded-circle"
                                     src="<?= base_url("sb-admin-2/img/undraw_profile.svg")?>">
                             </a>
-                            <!-- Dropdown - User Information  -->
+                            <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
@@ -132,7 +134,7 @@
                                     Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?= base_url("logout") ?>" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -159,7 +161,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; PetShop 2023</span>
                     </div>
                 </div>
             </footer>
@@ -190,7 +192,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="<?= base_url("logout") ?>">Logout</a>
                 </div>
             </div>
         </div>
