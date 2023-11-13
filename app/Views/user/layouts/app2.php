@@ -19,24 +19,13 @@
                 PetCare
             </a>
             <ul class="nav nav-underline justify-content-end" style="font-size: 18px;">
+                        
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url("user/") ?>">Home</a>
+                        <a href="<?= base_url("login") ?>"  class="btn btn-info" style="color:whitesmoke; padding:8px; width:90px;">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url("user/services") ?>">Services</a>
+                        <a href="<?= base_url("register") ?>"  class="btn btn-info" style="color:whitesmoke; padding:8px; width:90px;">Register</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url("user/products") ?>">Products</a>
-                </li>
-                <?php if(logged_in()) : ?>
-            <li class="nav-item">
-            <a href="<?= base_url("/logout") ?>"  class="btn btn-info" style="color:whitesmoke; padding:8px;">logout</a>
-            </li>
-            <?php else : ?>
-                <li class="nav-item">
-                    <a href="<?= base_url("/login") ?>"  class="btn btn-info" style="color:whitesmoke; padding:8px;">login</a>
-            </li>
-            <?php endif ; ?>
             </ul>
         </div>
     </nav>
