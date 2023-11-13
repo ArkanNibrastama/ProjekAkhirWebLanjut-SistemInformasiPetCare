@@ -18,7 +18,11 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <!-- Custom styles for this template-->
     <link href="<?= base_url("sb-admin-2/css/sb-admin-2.min.css") ?>" rel="stylesheet">
     
@@ -45,8 +49,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="/dashboard">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                <a class="nav-link" href="<?= base_url('Pegawai/dashboard')?>">
                     <span>Dashboard</span></a>
             </li>
 
@@ -57,15 +60,15 @@
             <!-- <li class="nav-item">
           <a class="nav-link"> -->
           <!-- Dropdown - User Information -->
-          <i class="fas fa-solid fa-store"></i>
+         <!-- Dropdown - User Information -->
             <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     booking
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
+    <a class="dropdown-item" href="<?= base_url('Pegawai/konfirmasi')?>">confirmation</a>
+    <a class="dropdown-item" href="<?= base_url('Pegawai/complete')?>">complete</a>
+    <a class="dropdown-item" href="<?= base_url('Pegawai/history')?>">history</a>
   </div>
 </div>
             <!-- </span> -->
@@ -74,17 +77,16 @@
 
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('Pegawai/produk')?>">
-            <i class="fas fa-dollar-sign"></i>
             <span>Produk</span></a
           >
         </li>
 
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('/Pegawai/inventaris')?>">
-            <i class="fas fa-arrow-left"></i>
             <span>Inventaris</span></a
           >
         </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -122,7 +124,7 @@
                                 <img class="img-profile rounded-circle"
                                     src="<?= base_url("sb-admin-2/img/undraw_profile.svg")?>">
                             </a>
-                            <!-- Dropdown - User Information -->
+                            <!-- Dropdown - User Information  -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">

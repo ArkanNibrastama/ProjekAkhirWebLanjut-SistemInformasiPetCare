@@ -30,14 +30,18 @@
     <tr>
       <th>Nama Barang</th>
       <th>Jumlah</th>
+      <th>harga</th>
+      <th>Aksi</th>
     </tr>
         <tr>
             <td>Stik Bulu</td>
             <td>10</td>
+            <td>Rp. 20.000</td>
             <td>
-              <a href="<?= base_url('')?>">Tambah Barang</a>
-              <br>
-              <a href="<?= base_url('')?>">Update Barang</a>
+            <button class="btn btn-success  btn-sm">Tambah produk</button>
+            <br>
+            <br>
+            <button class="btn btn-success  btn-sm">Update produk</button>
             </td>
         </tr>
   </table>

@@ -7,17 +7,10 @@ use App\Controllers\BaseController;
 class Pegawai extends BaseController
 {
 
-    public function pegawai()
+    public function index()
     {
     return view ('Pegawai/index');
 }
-
-
-    public function index()
-    {
-    
-
-    }
 
     public function produk()
     {
@@ -30,4 +23,24 @@ class Pegawai extends BaseController
     return view ('Pegawai/inventaris');
 
     }
+
+    public function confirm()
+    {
+    return view ('Pegawai/confirm');
+
+    }
+
+    
+    public function complete()
+    {
+    return view ('Pegawai/complete');
+    
+    }
+
+    public function history()
+    {
+    return view ('Pegawai/history');
+    
+    }
+
 }
