@@ -15,3 +15,5 @@ $routes->get('/produk', 'Admin::listproduk');
 $routes->get('/user','UserController::index');
 $routes->get('/products','UserController::products');
 $routes->get('/services','UserController::services');
+$routes->get('/akun-user','Admin::listUser');
+$routes->get('/akun-pegawai','Admin::listPegawai');
