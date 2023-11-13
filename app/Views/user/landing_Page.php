@@ -39,7 +39,7 @@
             <div class="col">
                 <p>Anda dapat segera mengamankan tempat dengan cara membuat perjanjian atau booking sekarang. Dengan mengikuti langkah-langkah sederhana ini, Anda dapat memastikan bahwa jadwal Anda teratur dan tidak akan terlewatkan. Booking sekarang tidak hanya memberikan Anda kenyamanan, tetapi juga memastikan bahwa Anda mendapatkan layanan atau fasilitas yang Anda inginkan sesuai dengan waktu yang Anda inginkan. Dengan demikian, Anda dapat menghindari kerumitan dan ketidakpastian, serta memastikan pengalaman yang mulus dan memuaskan. Jadi, jangan tunda lagi, buatlah perjanjian sekarang untuk menikmati semua manfaatnya.
                 </p>
-                <a href="<?= base_url('/services') ?>" class="btn btn-info" style="color:whitesmoke; padding:8px;">Make an Appoinment Now!</a>
+                <a href="<?= base_url('/user/services') ?>" class="btn btn-info" style="color:whitesmoke; padding:8px;">Make an Appoinment Now!</a>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <div class="text_link" style="margin-top:50px;">
-                <a href="<?= base_url('/services') ?>">See the details</a>
+                <a href="<?= base_url('/user/services') ?>">See the details</a>
             </div>
         </div>
     </div>
@@ -169,7 +169,7 @@
             </div>
         </div>
         <div class="text_link" style="margin-top:50px;">
-            <a href="<?= base_url('/products') ?>">Show more products</a>
+            <a href="<?= base_url('/user/products') ?>">Show more products</a>
         </div>
     </div>
     <!-- end our products section -->
