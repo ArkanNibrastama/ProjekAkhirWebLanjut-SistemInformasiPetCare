@@ -20,6 +20,18 @@ class UserController extends BaseController
         ];
         return view("user/products", $data);
     }
+    public function detailsproducts(){
+        $data = [
+            "title"=> "Detail Products",
+        ];
+        return view("user/detail_products", $data);
+    }
+    public function formslayanan(){
+        $data = [
+            "title"=> "Form Layanan",
+        ];
+        return view("user/formlayanan", $data);
+    }
     public function services(){
         $data = [
             "title"=> "Services",
