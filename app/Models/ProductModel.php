@@ -47,4 +47,22 @@ class productModel extends Model
         return $this->select('product.*')
                 ->findAll();
     }
+    public function saveproduct($data){
+        $this->insert($data);       
+    }
+    public function updateproduct($id, $data) {
+        return $this->update($id, $data);
+    }
+    public function deleteproduct($id) {
+        return $this->delete($id);
+    }
+    public function getproductid($id=null){
+        if ($id !=null) {
+
+            return $this->select('product.*')
+                ->find($id);
+        }
+        return $this->select('product.*')
+                ->findAll();
+    }
 }

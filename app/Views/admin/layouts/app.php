@@ -207,6 +207,36 @@
     <script src="<?= base_url("sb-admin-2/js/demo/chart-area-demo.js") ?>"></script>
     <script src="<?= base_url("sb-admin-2/js/demo/chart-pie-demo.js") ?>"></script>
 
+    <script>
+        $(document).ready(function() {
+            $(".delete-button").click(function() {
+                if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+                    var url = $(this).data("url");
+                    $.ajax({
+                        url: url,
+                        type: "DELETE",
+                        success: function(response) {
+                            // Handle the success response here, for example, you can reload the page
+                            // to reflect the changes.
+                            location.reload();
+                        },
+                        error: function(error) {
+                            // Handle errors, e.g., show an error message to the user.
+                            console.error("Error:", error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#myAlert').fadeOut('slow');
+            }, 3000);
+        });
+    </script>
+
 </body>
 
 </html>
