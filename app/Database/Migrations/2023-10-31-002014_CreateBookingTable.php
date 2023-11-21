@@ -26,7 +26,7 @@ class CreatebookingTable extends Migration
             ],
             'layanan' => [
                 'type' => 'VARCHAR',
-                'constraint' => '10',
+                'constraint' => '255',
             ],
             'created_at' => [
                 'type' => 'DATETIME',

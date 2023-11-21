@@ -12,10 +12,10 @@ class TransaksiModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['id_product',	'id_user',	'tanggal_transaksi',	'alamat',	'jumlah_barang',	'total_transaksi'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -42,4 +42,9 @@ class TransaksiModel extends Model
 public function getTransaksi(){
     return $this->findAll();
 }
+
+public function beliProduct($data){
+    return $this->insert($data);
+}
+
 }

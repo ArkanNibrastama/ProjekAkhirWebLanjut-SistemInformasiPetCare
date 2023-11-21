@@ -20,8 +20,16 @@ class productTable extends Migration
                 'constraint' => 255,
             ],
             'harga_product' => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
+            'category' => [
                 'type' => 'VARCHAR',
-                'constraint' => 15,
+                'constraint' => 100,
+            ],
+            'deskripsi' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
             ],
             'stok_product' =>[
                 'type' => 'INT',
@@ -35,14 +43,17 @@ class productTable extends Migration
             'created_at' => [
                 'type' => 'DATETIME',
                 'constraint' => true,
+                'null' => true,
             ],
             'updated_at' => [
                 'type' => 'DATETIME',
                 'constraint' => true,
+                'null' => true,
             ],
             'deleted_at' => [
                 'type' => 'DATETIME',
                 'constraint' => true,
+                'null' => true,
             ],
         ]);
 

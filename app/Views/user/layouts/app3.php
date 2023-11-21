@@ -26,7 +26,7 @@
                     <a class="nav-link" href="<?= base_url("user/services") ?>">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url("user/products") ?>">Products</a>
+                    <a class="nav-link" href="<?= base_url("user/product") ?>">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url("logout") ?>">Logout</a>
