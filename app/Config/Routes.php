@@ -29,5 +29,6 @@ $routes->get('/user/products','UserController::products', ['filter'=>'role:user'
 $routes->get('/user/services','UserController::services', ['filter'=>'role:user']);
 $routes->get('/user/detail_products','UserController::detailsproducts', ['filter'=>'role:user']);
 $routes->get('/user/formlayanan','UserController::formslayanan', ['filter'=>'role:user']);
+$routes->post('/user/booking','UserController::simpan_data', ['filter'=>'role:user']);
 
 

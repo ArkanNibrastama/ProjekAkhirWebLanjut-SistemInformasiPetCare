@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\BookingModel;
 
 class UserController extends BaseController
 {
@@ -32,6 +33,26 @@ class UserController extends BaseController
         ];
         return view("user/formlayanan", $data);
     }
+    public function simpan_data()
+    {
+        $bookingModel = new BookingModel();
+
+        $data = [
+            'nama_pemilik' => $this->request->getPost('nama_pemilik'),
+            'email' => $this->request->getPost('email'),
+            'nomor_telepon' => $this->request->getPost('nomor_telepon'),
+            'nama_hewan' => $this->request->getPost('nama_hewan'),
+            'jenis_hewan' => $this->request->getPost('jenis_hewan'),
+            'usia_hewan' => $this->request->getPost('usia_hewan'),
+            'layanan' => $this->request->getPost('layanan'),
+            'tanggal_booking' => $this->request->getPost('tanggal_booking'),
+        ];
+
+        $bookingModel->insert($data);
+
+        return redirect()->to(base_url('user/services'))->with('success', 'Data berhasil disimpan');
+    }
+
     public function services(){
         $data = [
             "title"=> "Services",
