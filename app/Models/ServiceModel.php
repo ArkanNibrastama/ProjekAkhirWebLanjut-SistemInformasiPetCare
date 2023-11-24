@@ -41,4 +41,22 @@ class ServiceModel extends Model
     public function getService(){
         return $this->findAll();
     }
+    public function saveservice($data){
+        $this->insert($data);       
+    }
+    public function updateservice($id, $data) {
+        return $this->update($id, $data);
+    }
+    public function deleteservice($id) {
+        return $this->delete($id);
+    }
+    public function getserviceid($id=null){
+        if ($id !=null) {
+
+            return $this->select('service.*')
+                ->find($id);
+        }
+        return $this->select('service.*')
+                ->findAll();
+    }
 }

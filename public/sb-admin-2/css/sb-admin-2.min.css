@@ -1961,6 +1961,35 @@ a.btn.disabled,fieldset:disabled a.btn{
 .btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus{
     box-shadow:0 0 0 .2rem rgba(105,136,228,.5)
 }
+.btn-petcare{
+    color:#fff;
+    background-color:#816234;
+    border-color:#816234
+}
+.btn-petcare:hover{
+    color:#fff;
+    background-color:#D1B990;
+    border-color:#D1B990
+}
+.btn-petcare.focus,.btn-petcare:focus{
+    color:#fff;
+    background-color:#816234;
+    border-color:#D1B990;
+    box-shadow:0 0 0 .2rem rgba(105,136,228,.5)
+}
+.btn-petcare.disabled,.btn-petcare:disabled{
+    color:#fff;
+    background-color:#816234;
+    border-color:#816234
+}
+.btn-petcare:not(:disabled):not(.disabled).active,.btn-petcare:not(:disabled):not(.disabled):active,.show>.btn-petcare.dropdown-toggle{
+    color:#fff;
+    background-color:#D1B990;
+    border-color:#816234
+}
+.btn-petcare:not(:disabled):not(.disabled).active:focus,.btn-petcare:not(:disabled):not(.disabled):active:focus,.show>.btn-petcare.dropdown-toggle:focus{
+    box-shadow:0 0 0 .2rem rgba(105,136,228,.5)
+}
 .btn-secondary{
     color:#fff;
     background-color:#858796;
