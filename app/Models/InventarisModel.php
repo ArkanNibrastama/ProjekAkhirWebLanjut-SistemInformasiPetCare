@@ -15,7 +15,7 @@ class InventarisModel extends Model
     protected $allowedFields    = ['nama_inventaris'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -41,6 +41,7 @@ class InventarisModel extends Model
     public function getInventaris(){
         return $this->findAll();
     }
+
     public function saveInventaris($data){
         $this->insert($data);       
     }

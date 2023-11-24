@@ -47,6 +47,7 @@ class productModel extends Model
         return $this->select('product.*')
                 ->findAll();
     }
+
     public function saveproduct($data){
         $this->insert($data);       
     }
@@ -65,4 +66,5 @@ class productModel extends Model
         return $this->select('product.*')
                 ->findAll();
     }
+
 }

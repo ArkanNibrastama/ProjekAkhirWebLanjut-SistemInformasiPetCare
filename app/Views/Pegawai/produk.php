@@ -18,6 +18,9 @@
             <div class="card shadow mb-4">
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-dark">List Produk</h6>
+                    <form action="<?= base_url('/pegawai/createproduct') ?>">
+                    <button type="submit" class="btn btn-primary  btn-sm">Tambah produk</button>
+                    </form>
                 </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -28,22 +31,23 @@
         cellspacing="0"
         >
     <tr>
+      <th>Id</th>
       <th>Nama Produk</th>
-      <th>Jumlah</th>
-      <th>Deskripsi</th>
       <th>Harga</th>
+      <th>Stok</th>
+      <th>Foto</th>
       <th>Aksi</th>
     </tr>
         <tr>
-            <td>Whiskas</td>
-            <td>199</td>
-            <td>Makanan Kucing</td>
+            <td>1</td>
+            <td>Whiska</td>
             <td>Rp. 20.000</td>
+            <td>15</td>
+            <td>15</td>
             <td>
-            <button class="btn btn-success  btn-sm">Tambah produk</button>
-            <br>
-            <br>
-            <button class="btn btn-success  btn-sm">Update produk</button>
+            <form action="<?= base_url('pegawai/updateproduct') ?>">
+            <button class="btn btn-success  btn-sm">Update</button></form>
+            <button class="btn btn-danger  btn-sm">Delete</button>
             </td>
         </tr>
   </table>
