@@ -169,7 +169,7 @@
             </div>
         </div>
         <div class="text_link" style="margin-top:50px;">
-            <a href="<?= base_url('/user/products') ?>">Show more products</a>
+            <a href="<?= base_url('/user/product') ?>">Show more products</a>
         </div>
     </div>
     <!-- end our products section -->

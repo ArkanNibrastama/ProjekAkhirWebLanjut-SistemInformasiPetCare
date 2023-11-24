@@ -17,6 +17,25 @@
     <!-- font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
 
+    <style>
+        .inline-group {
+        max-width: 9rem;
+        padding: .5rem;
+        }
+
+        .inline-group .form-control {
+        text-align: right;
+        }
+
+        .form-control[type="number"]::-webkit-inner-spin-button,
+        .form-control[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+    </style>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -37,7 +56,7 @@
                     <a class="nav-link" href="<?= base_url("user/services") ?>">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url("user/products") ?>">Products</a>
+                    <a class="nav-link" href="<?= base_url("user/product") ?>">Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url("logout") ?>">Logout</a>
@@ -49,6 +68,12 @@
     <div class="navbar-extend"></div>
 
     <?= $this->renderSection('content') ?>
+
+
+    <script src="<?= base_url('assets/js/quantity.js') ?>"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <!-- start footer -->
     <footer class="text-dark text-center py-3">
@@ -70,7 +95,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
 
     <!-- Custom Javascript -->
-    <script src="<?= base_url("assets/js/index.js") ?>"></script>
+    <script>
+        $('.btn-plus, .btn-minus').on('click', function(e) {
+        const isNegative = $(e.target).closest('.btn-minus').is('.btn-minus');
+        const input = $(e.target).closest('.input-group').find('input');
+        if (input.is('input')) {
+            input[0][isNegative ? 'stepDown' : 'stepUp']()
+        }
+        });
+    </script>
 
 </body>
 </body>
