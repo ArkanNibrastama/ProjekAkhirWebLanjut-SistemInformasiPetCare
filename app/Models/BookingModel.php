@@ -4,18 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class productModel extends Model
+class BookingModel extends Model
 {
-    protected $table            = 'product';
+    protected $table            = 'booking';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_product','harga_product','stok_product','foto_product', 'category', 'deskripsi'];
+    protected $allowedFields = ['nama_pemilik', 'email', 'nomor_telepon', 'nama_hewan', 'jenis_hewan', 'usia_hewan', 'layanan', 'tanggal_booking'];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -37,34 +37,4 @@ class productModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    public function getproduct($id=null){
-        if ($id !=null) {
-
-            return $this->select('product.*')
-                ->find($id);
-        }
-        return $this->select('product.*')
-                ->findAll();
-    }
-
-    public function saveproduct($data){
-        $this->insert($data);       
-    }
-    public function updateproduct($id, $data) {
-        return $this->update($id, $data);
-    }
-    public function deleteproduct($id) {
-        return $this->delete($id);
-    }
-    public function getproductid($id=null){
-        if ($id !=null) {
-
-            return $this->select('product.*')
-                ->find($id);
-        }
-        return $this->select('product.*')
-                ->findAll();
-    }
-
 }

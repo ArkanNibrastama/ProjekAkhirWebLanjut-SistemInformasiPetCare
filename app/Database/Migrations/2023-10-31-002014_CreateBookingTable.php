@@ -15,18 +15,37 @@ class CreatebookingTable extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'tanggal_booking' => [
-                'type' => 'DATETIME',
-                'null' => true,
+            'nama_pemilik' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
             ],
-            'id_karyawan' => [
-                'type' => 'INT',
-                'constraint' => 12,
-                'unsigned' => true,
+            'email' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'nomor_telepon' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'nama_hewan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'jenis_hewan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'usia_hewan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
             ],
             'layanan' => [
                 'type' => 'VARCHAR',
-                'constraint' => '10',
+                'constraint' => '255',
+            ],
+            'tanggal_booking' => [
+                'type' => 'DATETIME',
+                'null' => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',

@@ -26,11 +26,12 @@ class Home extends BaseController
         return view("auth/register", $data);
     }
     public function redirect(){
+
         if(in_groups("admin")) {
             return redirect()->to("/admin");
         }else if(in_groups("pegawai")) {
             return redirect()->to("/pegawai");
-        }else {
+        }else{
             return redirect()->to("/user");
         }
     }

@@ -11,27 +11,35 @@ class CreatetransaksiTable extends Migration
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
-                'constraint' => 5,
+                'constraint' => 11,
                 'unsigned' => true,
                 'auto_increment' => true,
+            ],
+            'id_product' => [
+                'type' => 'INT',
+                'constraint' => 12,
+                'unsigned' => true,
+            ],
+            'id_user' => [
+                'type' => 'INT',
+                'constraint' => 12,
+                'unsigned' => true,
             ],
             'tanggal_transaksi' => [
                 'type' => 'DATETIME',
                 'null' => true,
             ],
-            'jumlah_barang' => [
+            'alamat' => [
                 'type' => 'VARCHAR',
-                'constraint' => '10',
+                'constraint' => '255',
             ],
-            'id_karyawan' => [
+            'jumlah_barang' => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
+            'total_transaksi' => [
                 'type' => 'INT',
                 'constraint' => 12,
-                'unsigned' => true,
-            ],
-            'id_barang' => [
-                'type' => 'INT',
-                'constraint' => 12,
-                'unsigned' => true,
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -48,6 +56,8 @@ class CreatetransaksiTable extends Migration
         ]);
 
         $this->forge->addKey('id', true, true);
+        $this->forge->addForeignKey('id_product','product','id');
+        $this->forge->addForeignKey('id_user','users','id');
         $this->forge->createTable('transaksi');
     }
 
@@ -56,3 +66,9 @@ class CreatetransaksiTable extends Migration
         $this->forge->dropTable('transaksi', true);
     }
 }
+
+
+//tambah:
+// - total harga
+// - opsi di antar atau di ambil (dropdown)
+// - alamat (nullable)

@@ -1,47 +1,41 @@
 <?= $this->extend('user/layouts/app3'); ?>
 <?= $this->section('content'); ?>
 <div class="container-1">
-    <h2>Pet Care Service Form</h2>
+<h2>Form Layanan</h2>
 
-        <!-- Informasi Pemilik Hewan -->
-        <fieldset>
-            <legend>Informasi Pemilik Hewan</legend>
-            <label for="owner_name">Nama Pemilik:</label>
-            <input type="text" id="owner_name" name="owner_name" required>
+<form action="<?= base_url('user/booking')?>" method="POST">
+    <label for="nama_pemilik">Nama Pemilik:</label>
+    <input type="text" id="nama_pemilik" name="nama_pemilik" required><br>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
 
-            <label for="phone">Nomor Telepon:</label>
-            <input type="tel" id="phone" name="phone" required>
-        </fieldset>
+    <label for="nomor_telepon">Nomor Telepon:</label>
+    <input type="tel" id="nomor_telepon" name="nomor_telepon" required><br>
 
-        <!-- Informasi Hewan Peliharaan -->
-        <fieldset>
-            <legend>Informasi Hewan Peliharaan</legend>
-            <label for="pet_name">Nama Hewan Peliharaan:</label>
-            <input type="text" id="pet_name" name="pet_name" required>
+    <label for="nama_hewan">Nama Hewan:</label>
+    <input type="text" id="nama_hewan" name="nama_hewan" required><br>
 
-            <label for="pet_type">Jenis Hewan:</label>
-            <input type="text" id="pet_type" name="pet_type" required>
+    <label for="jenis_hewan">Jenis Hewan:</label>
+    <input type="text" id="jenis_hewan" name="jenis_hewan" required><br>
 
-            <label for="pet_age">Usia Hewan (tahun):</label>
-            <input type="number" id="pet_age" name="pet_age" required>
+    <label for="usia_hewan">Usia Hewan:</label>
+    <input type="text" id="usia_hewan" name="usia_hewan" required><br>
 
-            <label for="checkup_date">Tanggal Pemeriksaan:</label>
-            <input type="date" id="checkup_date" name="checkup_date" required>
-        </fieldset>
-            <!-- Formulir -->
-        
-                <!-- Keterangan Tambahan -->
-                <fieldset>
-                    <legend>Keterangan Tambahan</legend>
-                     <textarea id="additional_notes" name="additional_notes" rows="4" placeholder="Masukkan catatan tambahan..."></textarea>
-                </fieldset>
+    <label for="layanan">Layanan:</label>
+    <select id="layanan" name="layanan" required>
+        <option value="layanan1">Pet Care</option>
+        <option value="layanan2">Pet Training</option>
+        <option value="layanan3">Combing</option>
+        <option value="layanan4">Teeth Brush</option>
+    </select><br>
+</br>
+    <label for="tanggal_booking">Tanggal Booking:</label>
+    <input type="datetime-local" id="tanggal_booking" name="tanggal_booking"><br>
+</br>
+    <button type="submit">Submit</button>
+</br>
+</form>
 
-        
-                <!-- Tombol Kirim -->
-                <button type="submit">Kirim Formulir</button>
-            </form>
-        </div>
+</div>
         <?= $this->endSection(); ?>
