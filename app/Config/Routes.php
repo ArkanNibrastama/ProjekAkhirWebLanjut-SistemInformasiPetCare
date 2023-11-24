@@ -23,6 +23,12 @@ $routes->get('pegawai/inventaris', [Pegawai::class, 'inventaris'], ['filter'=>'r
 $routes->get('pegawai/konfirmasi', [Pegawai::class, 'confirm'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/complete', [Pegawai::class, 'complete'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/history', [Pegawai::class, 'history'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/createproduct', [Pegawai::class, 'createproduct'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/updateproduct', [Pegawai::class, 'updateproduct'], ['filter'=>'role:pegawai']);
+$routes->post('pegawai/product/store', [Pegawai::class, 'storeproduct'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/createInventaris', [Pegawai::class, 'createInventaris'], ['filter'=>'role:pegawai']);
+$routes->post('pegawai/inventaris/store', [Pegawai::class, 'storeInventaris'], ['filter'=>'role:pegawai']);
+
 
 $routes->get('/user','UserController::index', ['filter'=>'role:user']);
 $routes->get('/user/products','UserController::products', ['filter'=>'role:user']);

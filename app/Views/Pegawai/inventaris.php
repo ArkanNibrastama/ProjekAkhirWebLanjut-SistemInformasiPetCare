@@ -18,6 +18,9 @@
             <div class="card shadow mb-4">
               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h6 class="m-0 font-weight-bold text-dark">List Barang</h6>
+                    <form action="<?= base_url('/pegawai/createinventaris') ?>">
+                    <button type="submit" class="btn btn-primary  btn-sm">Tambah Inventaris</button>
+                    </form>
                 </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -28,20 +31,16 @@
         cellspacing="0"
         >
     <tr>
-      <th>Nama Barang</th>
-      <th>Jumlah</th>
-      <th>harga</th>
+      <th>ID</th>
+      <th>Nama Iventaris</th>
       <th>Aksi</th>
     </tr>
         <tr>
+            <td>1</td>
             <td>Stik Bulu</td>
-            <td>10</td>
-            <td>Rp. 20.000</td>
             <td>
-            <button class="btn btn-success  btn-sm">Tambah produk</button>
-            <br>
-            <br>
-            <button class="btn btn-success  btn-sm">Update produk</button>
+            <button class="btn btn-success  btn-sm">Update</button>
+            <button class="btn btn-danger  btn-sm">Delete</button>
             </td>
         </tr>
   </table>
