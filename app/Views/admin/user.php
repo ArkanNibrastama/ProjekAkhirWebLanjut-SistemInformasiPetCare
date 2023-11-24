@@ -11,25 +11,32 @@
                                     <tr>
                                             <th>No</th>
                                             <th>Usename</th>
-                                            <th>Password</th>
                                             <th>Email</th>
+                                            <th>Password</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
                                     <?php $i = 1; ?>
-                                     <?php foreach ($user as $u) : ?>
+                                    <?php foreach ($data as $d) : ?>
                                         <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= $u['username']; ?></td>
-                                        <td><?= $u['password']; ?></td>
-                                        <td><?= $u['email']; ?></td>
+                                        <td><?= $d['username']; ?></td>
+                                        <td><?= $d['email']; ?></td>
+                                        <td><?= $d['password_hash']; ?></td>
                                         <td>
-                                            <a href="" class="btn btn-warning btn-sm mr-2">
+                                            <!-- <a href="" class="btn btn-warning btn-sm mr-2">
                                                 <i class="fas fa-pencil"></i> Edit
-                                            </a>
-                                            <a href="javascript:void(0);" class="btn btn-danger btn-sm mr-2 delete-button" data-url=""><i class="fas fa-trash"></i> Delete</a>
+                                            </a> -->
+                                            <!-- <a href="/admin/akun-user/<?= $d['id'] ?>" class="btn btn-danger btn-sm mr-2 delete-button" data-url=""><i class="fas fa-trash"></i> Delete</a> -->
+
+                                            <form action="<?= base_url('admin/akun-user/'.$d['id']) ?>" method="post" style="display: inline-block;">
+                                                <input type="hidden" name='_method' value="DELETE">
+                                                <?= csrf_field() ?>
+                                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+                                            </form>
+
                                         </td>
                                         </tr>
                                     <?php endforeach; ?>
