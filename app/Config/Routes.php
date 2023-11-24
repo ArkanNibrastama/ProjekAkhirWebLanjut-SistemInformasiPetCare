@@ -53,6 +53,7 @@ $routes->get('/user/services','UserController::services', ['filter'=>'role:user'
 $routes->get('/user/product/(:any)',[UserController::class, 'detailsproducts'], ['filter'=>'role:user']);
 $routes->post('/user/product/(:any)/buy',[UserController::class, 'buyProduct'], ['filter'=>'role:user']);
 $routes->get('/user/formlayanan','UserController::formslayanan', ['filter'=>'role:user']);
+$routes->post('/user/booking','UserController::simpan_data', ['filter'=>'role:user']);
 
 
 // - edit akun pegawai
