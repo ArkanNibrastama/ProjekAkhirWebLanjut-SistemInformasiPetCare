@@ -4,7 +4,7 @@
 
 <head>
 
-<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -17,14 +17,10 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url("sb-admin-2/css/sb-admin-2.min.css") ?>" rel="stylesheet">
-    
+
 </head>
 
 <body id="page-top">
@@ -36,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-petcare sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-cat"></i>
                 </div>
@@ -48,7 +44,8 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="<?= base_url('pegawai/')?>">
+                <a class="nav-link" href="/admin/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
 
@@ -56,43 +53,33 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <!-- <li class="nav-item">
-          <a class="nav-link"> -->
-          <!-- Dropdown - User Information -->
-         <!-- Dropdown - User Information -->
-        
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Booking</span>
-            </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <a class="collapse-item" href="<?= base_url('pegawai/konfirmasi')?>">Confirmation</a>
-                    <a class="collapse-item" href="<?= base_url('pegawai/complete')?>">Complete</a>
-                    <a class="collapse-item" href="<?= base_url('pegawai/history')?>">History</a>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Booking</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="<?= base_url('pegawai/konfirmasi')?>">Confirmation</a>
+                        <a class="collapse-item" href="<?= base_url('pegawai/complete')?>">Complete</a>
+                        <a class="collapse-item" href="<?= base_url('pegawai/history')?>">History</a>
+                    </div>
                 </div>
-            </div>
-        </li>
-            <!-- </span> -->
-        <!-- </a> -->
-        <!-- </li> -->
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('pegawai/produk')?>">
-            <span>Produk</span></a
-          >
-        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('pegawai/produk')?>">
+                    <span>Produk</span>
+                </a>
+            </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('/pegawai/inventaris')?>">
-            <span>Inventaris</span></a
-          >
-        </li>
-
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('/pegawai/inventaris')?>">
+                    <span>Inventaris</span>
+                </a>
+            </li>
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -126,7 +113,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nur fitriyani</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
                                     src="<?= base_url("sb-admin-2/img/undraw_profile.svg")?>">
                             </a>
@@ -218,6 +205,36 @@
     <!-- Page level custom scripts -->
     <script src="<?= base_url("sb-admin-2/js/demo/chart-area-demo.js") ?>"></script>
     <script src="<?= base_url("sb-admin-2/js/demo/chart-pie-demo.js") ?>"></script>
+
+    <script>
+        $(document).ready(function() {
+            $(".delete-button").click(function() {
+                if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+                    var url = $(this).data("url");
+                    $.ajax({
+                        url: url,
+                        type: "DELETE",
+                        success: function(response) {
+                            // Handle the success response here, for example, you can reload the page
+                            // to reflect the changes.
+                            location.reload();
+                        },
+                        error: function(error) {
+                            // Handle errors, e.g., show an error message to the user.
+                            console.error("Error:", error);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $('#myAlert').fadeOut('slow');
+            }, 3000);
+        });
+    </script>
 
 </body>
 
