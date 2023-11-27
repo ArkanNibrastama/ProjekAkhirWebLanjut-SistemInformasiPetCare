@@ -6,11 +6,13 @@
     <title><?= $title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url("assets/css/user.css") ?>">
+    
 
 </head>
 <body>
 
     <!-- start navbar -->
+    
     <nav class="navbar">
         <div class="container-fluid" >
             <a class="navbar-brand" href="#" style="font-size:32px;">
@@ -30,6 +32,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url("logout") ?>">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url("user/profile") ?>">
+                        <img src="https://picsum.photos/50/50" alt="Profile Picture" class="rounded-circle">
+                        <!-- <br class="navbar-text">John Doe</br> -->
+                    </a>
                 </li>
             </ul>
         </div>

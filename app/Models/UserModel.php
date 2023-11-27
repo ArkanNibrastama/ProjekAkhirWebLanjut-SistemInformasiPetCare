@@ -6,13 +6,13 @@ use CodeIgniter\Model;
 
 class UserModel extends Model
 {
-    protected $table            = 'user';
+    protected $table            = 'users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['username','password','email','role'];
+    protected $allowedFields    = ['username','password_hash','email',];
 
     // Dates
     protected $useTimestamps = false;
@@ -41,7 +41,15 @@ class UserModel extends Model
     {
         return $this->where('role', $role)->findAll();
     }
-}
+    public function getIdUser($id){
+
+        return $this->select('users.*' )
+        ->find($id);
+    }
+    public function updateProfile($data, $id){
+        return $this->update($id, $data);
+    }
+    }
 
 
 // use Faker\Generator;
