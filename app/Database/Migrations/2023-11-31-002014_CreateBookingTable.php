@@ -11,15 +11,21 @@ class CreatebookingTable extends Migration
         $this->forge->addField([
             'id' => [
                 'type' => 'INT',
-                'constraint' => 5,
+                'constraint' => 11,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'nama_pemilik' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
+            'id_user' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
             ],
-            'email' => [
+            'id_service' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
+            'nama_pemilik' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
@@ -39,13 +45,13 @@ class CreatebookingTable extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'layanan' => [
-                'type' => 'VARCHAR',
-                'constraint' => '255',
-            ],
             'tanggal_booking' => [
                 'type' => 'DATETIME',
                 'null' => true,
+            ],
+            'status' => [
+                'type' => 'INT',
+                'constraint' => '1',
             ],
             'created_at' => [
                 'type' => 'DATETIME',
@@ -62,6 +68,8 @@ class CreatebookingTable extends Migration
         ]);
 
         $this->forge->addKey('id', true, true);
+        $this->forge->addForeignKey('id_user', 'users', 'id');
+        $this->forge->addForeignKey('id_service', 'service', 'id');
         $this->forge->createTable('booking');
     }
 
