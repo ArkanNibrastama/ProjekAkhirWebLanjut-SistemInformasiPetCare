@@ -1,9 +1,0 @@
-task utk mingdep
-
-arkan:
-- buat dynamic data utk dashboard admin & pegawai
-- make sure all function is running well
-
-ara:
-- crud inventaris & produk di page pegawai 
-- fix create + edit table product

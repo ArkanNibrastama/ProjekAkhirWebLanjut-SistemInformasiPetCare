@@ -64,5 +64,15 @@ $routes->post('/user/product/(:any)/buy',[UserController::class, 'buyProduct'], 
 $routes->get('/user/formlayanan','UserController::formslayanan', ['filter'=>'role:user']);
 $routes->post('/user/booking','UserController::simpan_data', ['filter'=>'role:user']);
 
+// task utk mingdep
+
+// arkan:
+// - buat dynamic data utk dashboard admin & pegawai
+// - fix edit profile(?)
+// - make sure all function is running well
+
+// ara:
+// - crud inventaris & produk di page pegawai 
+// - fix create + edit table product
 
 
