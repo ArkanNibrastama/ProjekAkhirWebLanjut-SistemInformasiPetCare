@@ -40,6 +40,15 @@
                 <p>Anda dapat segera mengamankan tempat dengan cara membuat perjanjian atau booking sekarang. Dengan mengikuti langkah-langkah sederhana ini, Anda dapat memastikan bahwa jadwal Anda teratur dan tidak akan terlewatkan. Booking sekarang tidak hanya memberikan Anda kenyamanan, tetapi juga memastikan bahwa Anda mendapatkan layanan atau fasilitas yang Anda inginkan sesuai dengan waktu yang Anda inginkan. Dengan demikian, Anda dapat menghindari kerumitan dan ketidakpastian, serta memastikan pengalaman yang mulus dan memuaskan. Jadi, jangan tunda lagi, buatlah perjanjian sekarang untuk menikmati semua manfaatnya.
                 </p>
                 <a href="<?= base_url('/user/services') ?>" class="btn btn-info" style="color:whitesmoke; padding:8px;">Make an Appoinment Now!</a>
+                <link href="<?= base_url("sb-admin-2/vendor/fontawesome-free/css/all.min.css") ?>" rel="stylesheet" type="text/css">
+                <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+                  rel="stylesheet">
+                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+                <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script> 
             </div>
         </div>
     </div>
@@ -52,7 +61,7 @@
             <div class="row cards" style="width:100%">
                 <div class="col-md-3 d-flex justify-content-center" style="margin-top:15px;">
                     <div class="card" style="width:18rem;">
-                        <div class="card-body">
+                        <div class="card-body"> 
                             <img src="<?= base_url('/assets/img/img-service-petcare.png') ?>" alt="" class="icon">
                             <h5 class="card-title">Pet Care</h5>
                             <p class="card-text" >Layanan pet care adalah rangkaian layanan yang mencakup perawatan kesehatan, kebersihan, dan kesejahteraan hewan peliharaan. Ini meliputi pemberian vaksinasi, pemeriksaan kesehatan rutin, dan pengobatan medis untuk memastikan bahwa hewan peliharaan Anda tetap sehat, bahagia, dan dalam kondisi terbaiknya.</p>
