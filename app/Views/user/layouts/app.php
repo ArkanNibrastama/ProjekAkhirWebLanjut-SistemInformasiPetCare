@@ -6,6 +6,7 @@
     <title><?= $title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="<?= base_url("assets/css/user.css") ?>">
+    
     <link href="<?= base_url("sb-admin-2/vendor/fontawesome-free/css/all.min.css") ?>" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -21,6 +22,7 @@
 <body>
 
     <!-- start navbar -->
+    
     <nav class="navbar">
         <div class="container-fluid" >
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
@@ -44,6 +46,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url("logout") ?>">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url("user/profile") ?>">
+                        <img src="https://picsum.photos/50/50" alt="Profile Picture" class="rounded-circle">
+                        <!-- <br class="navbar-text">John Doe</br> -->
+                    </a>
                 </li>
             </ul>
         </div>

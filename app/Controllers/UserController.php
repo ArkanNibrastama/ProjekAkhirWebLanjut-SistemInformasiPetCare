@@ -7,16 +7,20 @@ use App\Models\BookingModel;
 use App\Models\productModel;
 use App\Models\ServiceModel;
 use App\Models\TransaksiModel;
+use App\Models\UserModel;
+
 
 class UserController extends BaseController
 {   
     public $productModel;
     public $transaksiModel;
+    public $userModel;
     public $serviceModel;
 
     public function __construct() {
         $this->productModel = new productModel();
         $this->transaksiModel = new TransaksiModel();
+        $this->userModel = new UserModel();
         $this->serviceModel = new ServiceModel();
     }
     public function index()
@@ -71,6 +75,50 @@ class UserController extends BaseController
 
         return redirect()->to(base_url('user/services'))->with('success', 'Data berhasil disimpan');
     }
+
+    public function profiles(){
+        $data = [
+            'title' => 'User Profile',
+            'profile' => $this->userModel->getIdUser(user_id()),
+        ];
+        return view("user/profile", $data);
+    }
+
+    public function edit_profile()
+{
+
+    // // Validasi form
+    // $this->validate([
+    //     'username' => 'required|string|min:3|max:255',
+    //     'email' => 'required|email',
+    //     'alamat' => 'required|string',
+    //     'no_hp' => 'required|string|min:10|max:15',
+    // ]);
+
+    // // Ambil data dari form
+    // $data = $this->request->getPost();
+
+    // // Ubah data di database
+    // $this->userModel->update($data);
+
+    // // Set flashdata
+    // session()->setFlashdata('success', 'Profil berhasil diperbarui');
+
+    // // Redirect ke halaman profil
+    $data = [
+        'title' => 'Edit Profile',
+        'profile' => $this->userModel->getIdUser(user_id()),
+    ];
+    return view("user/editprofile", $data);
+}
+
+public function update($id)
+{
+   
+}
+
+
+
 
     public function services(){
         $data = [
