@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\BookingModel;
 use App\Models\productModel;
+use App\Models\ServiceModel;
 use App\Models\TransaksiModel;
 use App\Models\UserModel;
 
@@ -14,11 +15,13 @@ class UserController extends BaseController
     public $productModel;
     public $transaksiModel;
     public $userModel;
+    public $serviceModel;
 
     public function __construct() {
         $this->productModel = new productModel();
         $this->transaksiModel = new TransaksiModel();
         $this->userModel = new UserModel();
+        $this->serviceModel = new ServiceModel();
     }
     public function index()
     {   
@@ -48,6 +51,7 @@ class UserController extends BaseController
     public function formslayanan(){
         $data = [
             "title"=> "Form Layanan",
+            "services" => $this->serviceModel->getService(),
         ];
         return view("user/formlayanan", $data);
     }
@@ -56,14 +60,15 @@ class UserController extends BaseController
         $bookingModel = new BookingModel();
 
         $data = [
+            'id_user' => user_id(),
+            'id_service' => $this->request->getPost('layanan'),
             'nama_pemilik' => $this->request->getPost('nama_pemilik'),
-            'email' => $this->request->getPost('email'),
             'nomor_telepon' => $this->request->getPost('nomor_telepon'),
             'nama_hewan' => $this->request->getPost('nama_hewan'),
             'jenis_hewan' => $this->request->getPost('jenis_hewan'),
             'usia_hewan' => $this->request->getPost('usia_hewan'),
-            'layanan' => $this->request->getPost('layanan'),
             'tanggal_booking' => $this->request->getPost('tanggal_booking'),
+            'status' => 1
         ];
 
         $bookingModel->insert($data);

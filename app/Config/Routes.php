@@ -43,8 +43,11 @@ $routes->put('/admin/akun-pegawai/(:any)',[Admin::class,'updatePegawai'], ['filt
 $routes->get('pegawai/', [Pegawai::class, 'index'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/produk', [Pegawai::class, 'produk'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/inventaris', [Pegawai::class, 'inventaris'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/konfirmasi/(:any)', [Pegawai::class, 'confirmBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/konfirmasi', [Pegawai::class, 'confirm'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/complete/(:any)', [Pegawai::class, 'completeBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/complete', [Pegawai::class, 'complete'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/history/(:any)', [Pegawai::class, 'historyBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/history', [Pegawai::class, 'history'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/createproduct', [Pegawai::class, 'createproduct'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/updateproduct', [Pegawai::class, 'updateproduct'], ['filter'=>'role:pegawai']);
@@ -65,8 +68,15 @@ $routes->get('/user/editprofile','UserController::edit_profile', ['filter'=>'rol
 $routes->put('/user/profile', 'UserController::update', ['filter' => 'role:user']);
 
 
+// task utk mingdep
 
-// - edit akun pegawai
-// - show product depends on db
-// - product transaction to db
+// arkan:
+// - buat dynamic data utk dashboard admin & pegawai
+// - fix edit profile(?)
+// - make sure all function is running well
+
+// ara:
+// - crud inventaris & produk di page pegawai 
+// - fix create + edit table product
+
 

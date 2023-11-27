@@ -62,19 +62,19 @@
                                             </div>
                                         <?php endif; ?> 
 
-                                        <button type="submit" class="btn btn-primary btn-user btn-block"><?=lang('Auth.loginAction')?></button>
+                                        <button type="submit" class="btn btn-petcare btn-user btn-block"><?=lang('Auth.loginAction')?></button>
 
                                     </form>
                                     <hr>
                                     <?php if ($config->activeResetter): ?>
                                         <div class="text-center">
-                                            <a class="small" href="<?= url_to('forgot') ?>"><?=lang('Auth.forgotYourPassword')?></a>
+                                            <a class="text-petcare small" href="<?= url_to('forgot') ?>"><?=lang('Auth.forgotYourPassword')?></a>
                                         </div>
                                     <?php endif; ?>
                                     
                                     <?php if ($config->allowRegistration) : ?>
                                         <div class="text-center">
-                                            <a class="small" href="<?= url_to('register') ?>"> <?=lang('Auth.needAnAccount')?> </a>
+                                            <a class="text-petcare small" href="<?= url_to('register') ?>"> <?=lang('Auth.needAnAccount')?> </a>
                                         </div>
                                     <?php endif; ?>
                                 </div>

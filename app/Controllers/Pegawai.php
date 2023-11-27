@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\BookingModel;
 use App\Models\ProductModel;
 use App\Models\InventarisModel;
 use App\Controllers\BaseController;
@@ -11,11 +12,13 @@ class Pegawai extends BaseController
 
     public $ProductModel;
     public $InventarisModel;
+    public $bookingModel;
 
     public function __construct() 
     {
         $this->ProductModel = new ProductModel ();
         $this->InventarisModel = new InventarisModel ();
+        $this->bookingModel = new BookingModel();
     }
 
     public function index()
@@ -63,8 +66,19 @@ class Pegawai extends BaseController
     {
         $data = [
             'title' => 'Confirm Booking',
+            'data' => $this->bookingModel->getConfirmBooking()
+
         ];
-    return view ('Pegawai/confirm', $data);
+        return view ('Pegawai/confirm', $data);
+
+    }
+
+    public function confirmBooking($id_booking)
+    {
+
+        $this->bookingModel->updateStatus($id_booking, ['status'=>2]);
+
+        return redirect()->to('pegawai/konfirmasi/');
 
     }
 
@@ -73,15 +87,26 @@ class Pegawai extends BaseController
     {
         $data = [
             'title' => 'Complete booking',
+            'data' => $this->bookingModel->getCompleteBooking()
         ];
     return view ('Pegawai/complete', $data);
     
+    }
+
+    public function completeBooking($id_booking)
+    {
+
+        $this->bookingModel->updateStatus($id_booking, ['status'=>3]);
+
+        return redirect()->to('pegawai/complete/');
+
     }
 
     public function history()
     {
         $data = [
             'title' => 'History booking',
+            'data' => $this->bookingModel->getHistoryBooking()
         ];
     return view ('Pegawai/history', $data);
     
