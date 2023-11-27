@@ -36,14 +36,14 @@
                                             <input type="password" name="pass_confirm" class="form-control form-control-user <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" 
                                                 placeholder="<?=lang('Auth.repeatPassword')?>" autocomplete="off">
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block"><?=lang('Auth.register')?></button>
+                                        <button type="submit" class="btn btn-petcare btn-user btn-block"><?=lang('Auth.register')?></button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="/">Forgot Password?</a>
+                                        <a class="text-petcare small" href="/">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                    <p class="small"><?=lang('Auth.alreadyRegistered')?> <a href="<?= url_to('login') ?>"><?=lang('Auth.signIn')?></a></p>
+                                    <p class="text-petcare small"><?=lang('Auth.alreadyRegistered')?> <a class="text-petcare" href="<?= url_to('login') ?>"><?=lang('Auth.signIn')?></a></p>
                                     </div>
                                 </div>
                             </div>

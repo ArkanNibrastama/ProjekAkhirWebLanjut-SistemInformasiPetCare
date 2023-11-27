@@ -28,21 +28,35 @@
         cellspacing="0"
         >
     <tr>
-      <th>Id</th>
+      <th>No</th>
       <th>Tanggal Booking</th>
-      <th>Id Karyawan</th>
+      <th>ID User</th>
+      <th>Nama Pemilik</th>
+      <th>No Telp</th>
+      <th>Nama Hewan</th>
+      <th>Jenis Hewan</th>
+      <th>Usia Hewan</th>
       <th>Layanan</th>
       <th>Aksi</th>
     </tr>
-        <tr>
-            <td>1</td>
-            <td>12-11-2023</td>
-            <td>1</td>
-            <td>Grooming</td>
-            <td>
-            <button class="btn btn-success">Confirm</button>
-            </td>
-        </tr>
+    <!-- loop -->
+    <?php $i = 1; ?>
+    <?php foreach($data as $d){ ?>
+    <tr> 
+        <td><?= $i++; ?></td>
+        <td><?= $d['tanggal_booking'] ?></td>
+        <td><?= $d['id_user'] ?></td>
+        <td><?= $d['nama_pemilik'] ?></td>
+        <td><?= $d['nomor_telepon'] ?></td>
+        <td><?= $d['nama_hewan'] ?></td>
+        <td><?= $d['jenis_hewan'] ?></td>
+        <td><?= $d['usia_hewan'] ?></td>
+        <td><?= $d['nama_service'] ?></td>
+        <td>
+          <a href="<?= base_url('pegawai/konfirmasi/'.$d['id']) ?>" class="btn btn-success">Confirm</a>
+        </td>
+    </tr>
+    <?php } ?>
   </table>
   </div>
     </div>
