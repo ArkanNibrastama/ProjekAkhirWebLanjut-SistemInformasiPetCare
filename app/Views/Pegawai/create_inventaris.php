@@ -20,7 +20,7 @@
 
   <br>
   <a href="/pegawai/inventaris/" class="btn btn-warning">Kembali</a>
-  <button type="submit" class="btn btn-primary">Simpan</button>
+  <button type="submit" class="btn btn-petcare">Simpan</button>
 </form>
                                 </div>
                             </div>

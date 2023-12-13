@@ -41,19 +41,24 @@ $routes->get('/admin/akun-pegawai/(:any)/edit',[Admin::class,'editPegawai'], ['f
 $routes->put('/admin/akun-pegawai/(:any)',[Admin::class,'updatePegawai'], ['filter'=>'role:admin']);
 
 $routes->get('pegawai/', [Pegawai::class, 'index'], ['filter'=>'role:pegawai']);
-$routes->get('pegawai/produk', [Pegawai::class, 'produk'], ['filter'=>'role:pegawai']);
-$routes->get('pegawai/inventaris', [Pegawai::class, 'inventaris'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/konfirmasi/(:any)', [Pegawai::class, 'confirmBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/konfirmasi', [Pegawai::class, 'confirm'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/complete/(:any)', [Pegawai::class, 'completeBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/complete', [Pegawai::class, 'complete'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/history/(:any)', [Pegawai::class, 'historyBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/history', [Pegawai::class, 'history'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/product', [Pegawai::class, 'listProduct'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/createproduct', [Pegawai::class, 'createproduct'], ['filter'=>'role:pegawai']);
-$routes->get('pegawai/updateproduct', [Pegawai::class, 'updateproduct'], ['filter'=>'role:pegawai']);
 $routes->post('pegawai/product/store', [Pegawai::class, 'storeproduct'], ['filter'=>'role:pegawai']);
-$routes->get('pegawai/createInventaris', [Pegawai::class, 'createInventaris'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/product/(:any)/edit', 'Pegawai::editproduct/$1', ['filter'=>'role:pegawai']);
+$routes->put('pegawai/product/(:any)', 'Pegawai::updateproduct/$1', ['filter'=>'role:pegawai']);
+$routes->delete('pegawai/product/(:any)', 'Pegawai::destroyproduct/$1', ['filter'=>'role:pegawai']);
+$routes->get('pegawai/inventaris', [Pegawai::class, 'listInventaris'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/createinventaris', [Pegawai::class, 'createInventaris'], ['filter'=>'role:pegawai']);
 $routes->post('pegawai/inventaris/store', [Pegawai::class, 'storeInventaris'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/inventaris/(:any)/edit', 'Pegawai::editInventaris/$1', ['filter'=>'role:pegawai']);
+$routes->put('pegawai/inventaris/(:any)', 'Pegawai::updateInventaris/$1', ['filter'=>'role:pegawai']);
+$routes->delete('pegawai/inventaris/(:any)', 'Pegawai::destroyInventaris/$1', ['filter'=>'role:pegawai']);
 
 
 $routes->get('/user','UserController::index', ['filter'=>'role:user']);
