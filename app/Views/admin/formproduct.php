@@ -17,6 +17,29 @@
               </div>
             <?php endif; ?>
   </div>
+
+  <div class="form-group">
+    <br>
+    <label for="category">Kategori Product</label>
+    <input type="text" name="category" class="form-control <?php if (session()->getFlashdata('error_category')) echo 'is-invalid'; ?>" value="<?= old('category'); ?>">
+            <?php if (session()->getFlashdata('error_category')) : ?>
+              <div class="invalid-feedback">
+                <?= session()->getFlashdata('error_category') ?>
+              </div>
+            <?php endif; ?>
+  </div>
+
+  <div class="form-group">
+    <br>
+    <label for="deskripsi">Deskripsi Product</label>
+    <textarea type="text" name="deskripsi" class="form-control <?php if (session()->getFlashdata('error_deskripsi')) echo 'is-invalid'; ?>" value="<?= old('deskripsi'); ?>"></textarea>
+            <?php if (session()->getFlashdata('error_deskripsi')) : ?>
+              <div class="invalid-feedback">
+                <?= session()->getFlashdata('error_deskripsi') ?>
+              </div>
+            <?php endif; ?>
+  </div>
+  
   <div class="form-group">
     <label for="stok_product">Stok Product</label>
     <input type="int" name="stok_product" class="form-control <?php if (session()->getFlashdata('error_stok_product')) echo 'is-invalid'; ?>" value="<?= old('stok_product'); ?>">

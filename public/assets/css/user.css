@@ -15,10 +15,6 @@ body{
 .nav-link{
   color: black;
 }
-.navbar-extend{
-  width: 100%;
-  height: 90px;
-}
 .carousel-inner img{
   height:85vh; 
   object-fit: cover;

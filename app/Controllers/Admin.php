@@ -146,6 +146,18 @@ class Admin extends BaseController
                     'required' => '{field} tidak boleh kosong.',
                 ]
                 ],
+            'category' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+                ],
+            'deskripsi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+                ],
             'nama_product' => [
                 'rules' => 'required|is_unique[product.nama_product]',
                 'errors' => [
@@ -173,6 +185,8 @@ class Admin extends BaseController
                 }
                 $this->ProductModel->saveproduct([
                     'nama_product' => $this->request->getVar('nama_product'),
+                    'category' => $this->request->getVar('category'),
+                    'deskripsi' => $this->request->getVar('deskripsi'),
                     'harga_product' => $this->request->getVar('harga_product'),
                     'stok_product' => $this->request->getVar('stok_product'),
                     'foto_product' => $foto,
@@ -210,6 +224,8 @@ class Admin extends BaseController
             
                 $data = [
                     'nama_product' => $this->request->getVar('nama_product'),
+                    'category' => $this->request->getVar('category'),
+                    'deskripsi' => $this->request->getVar('deskripsi'),
                     'harga_product' => $this->request->getVar('harga_product'),
                     'stok_product' => $this->request->getVar('stok_product'),
                     'foto_product' => $foto,

@@ -1,7 +1,7 @@
 <?= $this->extend('user/layouts/app'); ?>
 <?= $this->section('content'); ?>
 
-    <div class="container" style="margin-top: 50px;">
+    <div class="container" style="margin-top: 150px;">
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <?php foreach($product as $p){ ?>
                 <div class="col-md-3 mb-4">
