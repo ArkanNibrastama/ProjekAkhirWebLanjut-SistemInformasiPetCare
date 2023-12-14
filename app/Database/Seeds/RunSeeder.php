@@ -11,5 +11,6 @@ class RunSeeder extends Seeder
         $this->call('InventarisSeeder');
         $this->call('ProductSeeder');
         $this->call('ServiceSeeder');
+        $this->call('AkunSeeder');
     }
 }

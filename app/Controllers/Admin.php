@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\AdminModel;
 use App\Models\InventarisModel;
 use App\Models\ProductModel;
@@ -14,13 +15,12 @@ class Admin extends BaseController
     public $ProductModel;
     public $ServiceModel;
     public $adminModel;
-    public function __construct() 
+    public function __construct()
     {
-        $this->InventarisModel = new InventarisModel ();
-        $this->ProductModel = new ProductModel ();
-        $this->ServiceModel = new ServiceModel ();
-        $this->adminModel = new AdminModel ();
-
+        $this->InventarisModel = new InventarisModel();
+        $this->ProductModel = new ProductModel();
+        $this->ServiceModel = new ServiceModel();
+        $this->adminModel = new AdminModel();
     }
     public function index(): string
     {
@@ -35,14 +35,14 @@ class Admin extends BaseController
             'title' => 'List Inventaris',
             'inventaris' => $this->InventarisModel->getInventaris(),
         ];
-        return view('admin/inventaris',$data);
+        return view('admin/inventaris', $data);
     }
     public function createInventaris(): string
     {
         $data = [
             'title' => 'Form Tambah Inventaris',
         ];
-        return view('admin/forminventaris',$data);
+        return view('admin/forminventaris', $data);
     }
     public function storeInventaris()
     {
@@ -52,75 +52,76 @@ class Admin extends BaseController
                 'errors' => [
                     'required' => '{field} tidak boleh kosong.',
                     'is_unique' => '{field} sudah terdaftar.',
-                    ]
-                ],
-                ])) {
-                    $validationErrors = $this->validator->getErrors();
-                    
-                    // Simpan pesan kesalahan dalam flashdata berdasarkan nama bidang
-                    foreach ($validationErrors as $field => $error) {
-                        session()->setFlashdata('error_' . $field, $error);
-                    }
-                    return redirect()->to('/admin/inventaris/create')->withInput();
-                    
-                    
-                }
-                
-                $this->InventarisModel->saveInventaris([
-                    'nama_inventaris' => $this->request->getVar('nama_inventaris'),
-                    
-                ]);
-                
-                session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
-                return redirect()->to('/admin/inventaris/');
-            }
-            public function editInventaris($id)
-            {
+                ]
+            ],
+        ])) {
+            $validationErrors = $this->validator->getErrors();
 
-                $data = [
-                    'title' => 'Form Update Inventaris',
-                    'inv' =>  $this->InventarisModel->getInventarisid($id)
-                ];
-                return view('admin/editinventaris',$data);
+            // Simpan pesan kesalahan dalam flashdata berdasarkan nama bidang
+            foreach ($validationErrors as $field => $error) {
+                session()->setFlashdata('error_' . $field, $error);
             }
-            public function updateInventaris($id)
-            {
+            return redirect()->to('/admin/inventaris/create')->withInput();
+        }
 
-                $data = [
-                    'nama_inventaris' => $this->request->getVar('nama_inventaris'),
-                ];
-            
-                $result = $this->InventarisModel->updateInventaris($id, $data);
-            
-                if (!$result) {
-                    return redirect()->back()->withInput()->with('error', 'Gagal Menyimpan Data');
-                }
-            
-                return redirect()->to('/admin/inventaris/');
-            }
-            public function destroyInventaris($id)
-            {
-                $result = $this->InventarisModel->deleteInventaris($id);
-                if (!$result) {
-                    return redirect()->back()->with('Error', 'Gagal menghapus Data');
-                }
-                return redirect()->to(base_url('/admin/inventaris/'))->with('success', 'Berhasil menghapus data');
-            }
-            public function listProduct(): string
-            {
-                $data = [
+        $this->InventarisModel->saveInventaris([
+            'nama_inventaris' => $this->request->getVar('nama_inventaris'),
+
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
+        return redirect()->to('/admin/inventaris/');
+    }
+    public function editInventaris($id)
+    {
+
+        $data = [
+            'title' => 'Form Update Inventaris',
+            'inv' =>  $this->InventarisModel->getInventarisid($id)
+        ];
+        return view('admin/editinventaris', $data);
+    }
+    public function updateInventaris($id)
+    {
+
+        $data = [
+            'nama_inventaris' => $this->request->getVar('nama_inventaris'),
+        ];
+
+        $result = $this->InventarisModel->updateInventaris($id, $data);
+
+        if (!$result) {
+            return redirect()->back()->withInput()->with('error', 'Gagal Menyimpan Data');
+        }
+
+        return redirect()->to('/admin/inventaris/');
+    }
+    public function destroyInventaris($id)
+    {
+        $result = $this->InventarisModel->deleteInventaris($id);
+        if (!$result) {
+            return redirect()->back()->with('Error', 'Gagal menghapus Data');
+        }
+        return redirect()->to(base_url('/admin/inventaris/'))->with('success', 'Berhasil menghapus data');
+    }
+
+
+    
+    public function listProduct(): string
+    {
+        $data = [
             'title' => 'List product',
             'product' => $this->ProductModel->getProduct(),
-            
+
         ];
-        return view('admin/product',$data);
+        return view('admin/product', $data);
     }
     public function createproduct(): string
     {
         $data = [
             'title' => 'Form Tambah product',
         ];
-        return view('admin/formproduct',$data);
+        return view('admin/formproduct', $data);
     }
     public function storeproduct()
     {
@@ -133,7 +134,7 @@ class Admin extends BaseController
                     'is_image'  => 'Yang anda pilih bukan gambar.',
                     'mime_in'   => 'Foto harus berekstensi png,jpg,jpeg,gif.'
                 ]
-                ],
+            ],
             'harga_product' => [
                 'rules' => 'required',
                 'errors' => [
@@ -145,100 +146,98 @@ class Admin extends BaseController
                 'errors' => [
                     'required' => '{field} tidak boleh kosong.',
                 ]
-                ],
+            ],
             'nama_product' => [
                 'rules' => 'required|is_unique[product.nama_product]',
                 'errors' => [
                     'required' => '{field} tidak boleh kosong.',
                     'is_unique' => '{field} sudah terdaftar.',
-                    ]
-                ],
-                ])) {
-                    $validationErrors = $this->validator->getErrors();
-                    
-                    // Simpan pesan kesalahan dalam flashdata berdasarkan nama bidang
-                    foreach ($validationErrors as $field => $error) {
-                        session()->setFlashdata('error_' . $field, $error);
-                    }
-                    return redirect()->to('/admin/product/create')->withInput();
-                    
-                    
-                }
-                $path = 'assets/img/';
-                $foto = $this->request->getFile('foto_product');
-                $name = $foto->getRandomName();
+                ]
+            ],
+        ])) {
+            $validationErrors = $this->validator->getErrors();
 
-                if ($foto->move($path, $name)) {
-                    $foto = base_url($path . $name);
-                }
-                $this->ProductModel->saveproduct([
-                    'nama_product' => $this->request->getVar('nama_product'),
-                    'harga_product' => $this->request->getVar('harga_product'),
-                    'stok_product' => $this->request->getVar('stok_product'),
-                    'foto_product' => $foto,
-                    
-                ]);
-                
-                session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
-                return redirect()->to('/admin/product/');
+            // Simpan pesan kesalahan dalam flashdata berdasarkan nama bidang
+            foreach ($validationErrors as $field => $error) {
+                session()->setFlashdata('error_' . $field, $error);
             }
-            public function editproduct($id)
-            {
+            return redirect()->to('/admin/product/create')->withInput();
+        }
+        $path = 'assets/img/';
+        $foto = $this->request->getFile('foto_product');
+        $name = $foto->getRandomName();
 
-                $data = [
-                    'title' => 'Form Update product',
-                    'p' =>  $this->ProductModel->getproductid($id)
-                ];
-                return view('admin/editproduct',$data);
-            }
-            public function updateproduct($id)
-            {
+        if ($foto->move($path, $name)) {
+            $foto = base_url($path . $name);
+        }
+        $this->ProductModel->saveproduct([
+            'nama_product' => $this->request->getVar('nama_product'),
+            'harga_product' => $this->request->getVar('harga_product'),
+            'stok_product' => $this->request->getVar('stok_product'),
+            'foto_product' => $foto,
 
-                $path = 'assets/img/';
-                $foto = $this->request->getFile('foto_product');
-            
-                // Periksa apakah ada file foto baru yang diunggah
-                if ($foto->isValid()) {
-                    $name = $foto->getRandomName();
-                    if ($foto->move($path, $name)) {
-                        $foto = base_url($path . $name);
-                    }
-                } else {
-                    $existingData = $this->ProductModel->getproductid($id); 
-                    $foto = $existingData['foto_product'];
-                }
-            
-                $data = [
-                    'nama_product' => $this->request->getVar('nama_product'),
-                    'harga_product' => $this->request->getVar('harga_product'),
-                    'stok_product' => $this->request->getVar('stok_product'),
-                    'foto_product' => $foto,
-                ];
-            
-                $result = $this->ProductModel->updateproduct($id, $data);
-            
-                if (!$result) {
-                    return redirect()->back()->withInput()->with('error', 'Gagal Menyimpan Data');
-                }
-            
-                return redirect()->to('admin/product');
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
+        return redirect()->to('/admin/product/');
+    }
+    public function editproduct($id)
+    {
+
+        $data = [
+            'title' => 'Form Update product',
+            'p' =>  $this->ProductModel->getproductid($id)
+        ];
+        return view('admin/editproduct', $data);
+    }
+    public function updateproduct($id)
+    {
+
+        $path = 'assets/img/';
+        $foto = $this->request->getFile('foto_product');
+
+        // Periksa apakah ada file foto baru yang diunggah
+        if ($foto->isValid()) {
+            $name = $foto->getRandomName();
+            if ($foto->move($path, $name)) {
+                $foto = base_url($path . $name);
             }
-            public function destroyproduct($id)
-            {
-                $result = $this->ProductModel->deleteproduct($id);
-                if (!$result) {
-                    return redirect()->back()->with('Error', 'Gagal menghapus Data');
-                }
-                return redirect()->to(base_url('/admin/product/'))->with('success', 'Berhasil menghapus data');
-            }
+        } else {
+            $existingData = $this->ProductModel->getproductid($id);
+            $foto = $existingData['foto_product'];
+        }
+
+        $data = [
+            'nama_product' => $this->request->getVar('nama_product'),
+            'harga_product' => $this->request->getVar('harga_product'),
+            'stok_product' => $this->request->getVar('stok_product'),
+            'foto_product' => $foto,
+        ];
+
+        $result = $this->ProductModel->updateproduct($id, $data);
+
+        if (!$result) {
+            return redirect()->back()->withInput()->with('error', 'Gagal Menyimpan Data');
+        }
+
+        return redirect()->to('admin/product');
+    }
+    public function destroyproduct($id)
+    {
+        $result = $this->ProductModel->deleteproduct($id);
+        if (!$result) {
+            return redirect()->back()->with('Error', 'Gagal menghapus Data');
+        }
+        return redirect()->to(base_url('/admin/product/'))->with('success', 'Berhasil menghapus data');
+    }
     public function listService(): string
     {
         $data = [
             'title' => 'List service',
             'service' => $this->ServiceModel->getService(),
-            
+
         ];
-        return view('admin/service',$data);
+        return view('admin/service', $data);
     }
 
 
@@ -247,7 +246,7 @@ class Admin extends BaseController
         $data = [
             'title' => 'Form Tambah service',
         ];
-        return view('admin/formservice',$data);
+        return view('admin/formservice', $data);
     }
     public function storeservice()
     {
@@ -257,62 +256,60 @@ class Admin extends BaseController
                 'errors' => [
                     'required' => '{field} tidak boleh kosong.',
                     'is_unique' => '{field} sudah terdaftar.',
-                    ]
-                ],
-                ])) {
-                    $validationErrors = $this->validator->getErrors();
-                    
-                    // Simpan pesan kesalahan dalam flashdata berdasarkan nama bidang
-                    foreach ($validationErrors as $field => $error) {
-                        session()->setFlashdata('error_' . $field, $error);
-                    }
-                    return redirect()->to('/admin/service/create')->withInput();
-                    
-                    
-                }
-                
-                $this->ServiceModel->saveservice([
-                    'nama_service' => $this->request->getVar('nama_service'),
-                    
-                ]);
-                
-                session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
-                return redirect()->to('/admin/service/');
-            }
-            public function editservice($id)
-            {
+                ]
+            ],
+        ])) {
+            $validationErrors = $this->validator->getErrors();
 
-                $data = [
-                    'title' => 'Form Update service',
-                    'inv' =>  $this->ServiceModel->getserviceid($id)
-                ];
-                return view('admin/editservice',$data);
+            // Simpan pesan kesalahan dalam flashdata berdasarkan nama bidang
+            foreach ($validationErrors as $field => $error) {
+                session()->setFlashdata('error_' . $field, $error);
             }
-            public function updateservice($id)
-            {
+            return redirect()->to('/admin/service/create')->withInput();
+        }
 
-                $data = [
-                    'nama_service' => $this->request->getVar('nama_service'),
-                ];
-            
-                $result = $this->ServiceModel->updateservice($id, $data);
-            
-                if (!$result) {
-                    return redirect()->back()->withInput()->with('error', 'Gagal Menyimpan Data');
-                }
-            
-                return redirect()->to('/admin/service/');
-            }
-            public function destroyservice($id)
-            {
-                $result = $this->ServiceModel->deleteservice($id);
-                if (!$result) {
-                    return redirect()->back()->with('Error', 'Gagal menghapus Data');
-                }
-                return redirect()->to(base_url('/admin/service/'))->with('success', 'Berhasil menghapus data');
-            }
+        $this->ServiceModel->saveservice([
+            'nama_service' => $this->request->getVar('nama_service'),
+
+        ]);
+
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan!');
+        return redirect()->to('/admin/service/');
+    }
+    public function editservice($id)
+    {
+
+        $data = [
+            'title' => 'Form Update service',
+            'inv' =>  $this->ServiceModel->getserviceid($id)
+        ];
+        return view('admin/editservice', $data);
+    }
+    public function updateservice($id)
+    {
+
+        $data = [
+            'nama_service' => $this->request->getVar('nama_service'),
+        ];
+
+        $result = $this->ServiceModel->updateservice($id, $data);
+
+        if (!$result) {
+            return redirect()->back()->withInput()->with('error', 'Gagal Menyimpan Data');
+        }
+
+        return redirect()->to('/admin/service/');
+    }
+    public function destroyservice($id)
+    {
+        $result = $this->ServiceModel->deleteservice($id);
+        if (!$result) {
+            return redirect()->back()->with('Error', 'Gagal menghapus Data');
+        }
+        return redirect()->to(base_url('/admin/service/'))->with('success', 'Berhasil menghapus data');
+    }
     public function listUser(): string
-    {   
+    {
 
         $users = $this->adminModel->showUser(1);
 
@@ -320,14 +317,14 @@ class Admin extends BaseController
             'title' => 'List user',
             'data' => $users,
         ];
-        return view('admin/user',$data);
+        return view('admin/user', $data);
     }
 
     public function deleteUser($id)
     {
         $this->adminModel->deleteUser($id);
 
-        return redirect()->back()->with('success','berhasil menghapus user');
+        return redirect()->back()->with('success', 'berhasil menghapus user');
     }
 
     public function listPegawai(): string
@@ -338,35 +335,38 @@ class Admin extends BaseController
         $data = [
             'title' => 'List pegawai',
             'data' => $pegawai
-            
+
         ];
-        return view('admin/pegawai',$data);
+        return view('admin/pegawai', $data);
     }
-    public function addPegawai(){
+    public function addPegawai()
+    {
         $data = [
-            'title'=> 'Tambah Pegawai',   
+            'title' => 'Tambah Pegawai',
         ];
-        return view ('admin/addPegawai',$data);
+        return view('admin/addPegawai', $data);
     }
 
-    public function savePegawai(){
-        
+    public function savePegawai()
+    {
+
         $data = [
             'email' => $this->request->getVar('email'),
             'username' => $this->request->getVar('username'),
             'password_hash' => Password::hash($this->request->getVar('password')),
             'active' => 1
-            
+
         ];
 
         // dd($data);
 
-        $this->adminModel->savePegawai($data);        
+        $this->adminModel->savePegawai($data);
 
-        return redirect()->to('/admin/akun-pegawai')->with('success','berhasil menambah pegawai');
+        return redirect()->to('/admin/akun-pegawai')->with('success', 'berhasil menambah pegawai');
     }
 
-    public function editPegawai($id){
+    public function editPegawai($id)
+    {
 
         $data = [
             'title' => 'Edit Pegawai',
@@ -376,26 +376,25 @@ class Admin extends BaseController
         return view('admin/editPegawai', $data);
     }
 
-    public function updatePegawai($id){
+    public function updatePegawai($id)
+    {
 
         $data = [
             'username' => $this->request->getVar('username'),
             'email' => $this->request->getVar('email'),
         ];
 
-        if($this->request->getVar('password') != ''){
+        if ($this->request->getVar('password') != '') {
             $data['password_hash'] = Password::hash($this->request->getVar('password'));
         }
 
         $result = $this->adminModel->updatePegawai($id, $data);
 
-        if(!$result){
+        if (!$result) {
             return redirect()->back()->withInput()
-            ->with('error', 'Gagal Update Data!');
+                ->with('error', 'Gagal Update Data!');
         }
 
         return redirect()->to('admin/akun-pegawai');
-
     }
-
 }

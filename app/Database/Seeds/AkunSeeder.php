@@ -11,15 +11,24 @@ class AkunSeeder extends Seeder
         $Umodel = new UserModel();
         $Umodel->save([
             'username' => 'user', 
-            'password'=>'12345678',
+            'password_hash'=> password_hash('petcare1234', PASSWORD_DEFAULT),
             'role'=>1,
+            'active'=>1,
             'email'=>'user@gmail.com'
         ]);
         $Umodel->save([
             'username' => 'pegawai', 
-            'password'=>'12345678',
+            'password_hash'=> password_hash('petcare1234', PASSWORD_DEFAULT),
             'role'=>2,
+            'active'=>1,
             'email'=>'pegawai@gmail.com'
+        ]);
+        $Umodel->save([
+            'username' => 'admin', 
+            'password_hash'=> password_hash('petcare1234', PASSWORD_DEFAULT),
+            'role'=>3,
+            'active'=>1,
+            'email'=>'admin@gmail.com'
         ]);
     }
 }
