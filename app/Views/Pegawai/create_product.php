@@ -47,8 +47,8 @@
   </div>
 
   <br>
-  <a href="/pegawai/produk/" class="btn btn-warning">Kembali</a>
-  <button type="submit" class="btn btn-primary">Simpan</button>
+  <a href="/pegawai/product/" class="btn btn-warning">Kembali</a>
+  <button type="submit" class="btn btn-petcare">Simpan</button>
 </form>
                                 </div>
                             </div>
