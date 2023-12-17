@@ -76,5 +76,4 @@ $routes->get('/user/bookingstatus', 'UserController::bookingStatus', ['filter' =
 
 
 
-//check footer
-//make a new login route (don't use route from myth/auth)
+//ganti return render nya jadi "auth/login" di AuthController.php lib
