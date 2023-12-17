@@ -13,7 +13,6 @@
                                             <th>No</th>
                                             <th>Usename</th>
                                             <th>Email</th>
-                                            <th>Password</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -25,7 +24,6 @@
                                         <td><?= $i++; ?></td>
                                         <td><?= $d['username']; ?></td>
                                         <td><?= $d['email']; ?></td>
-                                        <td><?= $d['password_hash']; ?></td>
                                         <td>
                                             <a href="<?= base_url('admin/akun-pegawai/'.$d['id'].'/edit') ?>" class="btn btn-warning btn-sm mr-2">
                                                 <i class="fas fa-pencil"></i> Edit

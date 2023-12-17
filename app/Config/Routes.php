@@ -43,6 +43,7 @@ $routes->put('/admin/akun-pegawai/(:any)',[Admin::class,'updatePegawai'], ['filt
 $routes->get('pegawai/', [Pegawai::class, 'index'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/konfirmasi/(:any)', [Pegawai::class, 'confirmBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/konfirmasi', [Pegawai::class, 'confirm'], ['filter'=>'role:pegawai']);
+$routes->get('pegawai/cancel/(:any)', [Pegawai::class, 'cancelBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/complete/(:any)', [Pegawai::class, 'completeBooking'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/complete', [Pegawai::class, 'complete'], ['filter'=>'role:pegawai']);
 $routes->get('pegawai/history/(:any)', [Pegawai::class, 'historyBooking'], ['filter'=>'role:pegawai']);
@@ -71,17 +72,8 @@ $routes->post('/user/booking','UserController::simpan_data', ['filter'=>'role:us
 $routes->get('/user/profile','UserController::profiles', ['filter'=>'role:user']);
 $routes->get('/user/editprofile','UserController::edit_profile', ['filter'=>'role:user']);
 $routes->put('/user/profile', 'UserController::update', ['filter' => 'role:user']);
+$routes->get('/user/bookingstatus', 'UserController::bookingStatus', ['filter' => 'role:user']);
 
 
-// task utk mingdep
 
-// arkan:
-// - buat dynamic data utk dashboard admin & pegawai
-// - fix edit profile(?)
-// - make sure all function is running well
-
-// ara:
-// - crud inventaris & produk di page pegawai 
-// - fix create + edit table product
-
-
+//ganti return render nya jadi "auth/login" di AuthController.php lib

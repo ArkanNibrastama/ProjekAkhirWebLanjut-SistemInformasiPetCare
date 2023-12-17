@@ -33,7 +33,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-cat"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Pet Care</div>
+                <div class="sidebar-brand-text mx-3">Sipetcare</div>
             </a>
 
             <!-- Divider -->
@@ -112,10 +112,10 @@
                     </a>
                     <!-- Dropdown - User Information -->
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">
+                        <!-- <a class="dropdown-item" href="#">
                             <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                             Profile
-                        </a>
+                        </a> -->
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -144,7 +144,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; PetShop 2023</span>
+                        <span>Copyright &copy; Sipetcare 2023</span>
                     </div>
                 </div>
             </footer>

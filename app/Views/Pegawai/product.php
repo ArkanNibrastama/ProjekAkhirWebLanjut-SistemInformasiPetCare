@@ -13,6 +13,8 @@
             <th>No</th>
             <th>Foto product</th>
             <th>Nama product</th>
+            <th>Kategori product</th>
+            <th>Deskripsi product</th>
             <th>Stok product</th>
             <th>Harga product</th>
             <th>Aksi</th>
@@ -25,6 +27,8 @@
               <td><?= $i++; ?></td>
               <td><img src="<?= $p['foto_product'] ?? 'https://bootdey.com/img/Content/avatar/avatar7.png' ?>" alt="" height="100px" width="100px"></td>
               <td><?= $p['nama_product']; ?></td>
+              <td><?= $p['category']; ?></td>
+              <td><?= $p['deskripsi']; ?></td>
               <td><?= $p['stok_product']; ?></td>
               <td><?= $p['harga_product']; ?></td>
               <td>

@@ -2,31 +2,33 @@
 <?= $this->section('content'); ?>
 
     <!-- start banner -->
-    <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+
         <div class="carousel-inner">
             <div class="carousel-item active">
-            <img src="<?= base_url('/assets/img/banner1.jpg') ?>" class="d-block w-100" alt="banner 1">
+            <img src="<?= base_url('/assets/img/banner1.jpg') ?>" alt="Los Angeles" class="d-block w-100">
             </div>
             <div class="carousel-item">
-            <img src="<?= base_url('/assets/img/banner2.jpg') ?>" class="d-block w-100" alt="banner 2">
+            <img src="<?= base_url('/assets/img/banner2.jpg') ?>" alt="Chicago" class="d-block w-100">
             </div>
             <div class="carousel-item">
-            <img src="<?= base_url('/assets/img/banner3.jpg') ?>" class="d-block w-100" alt="banner 3">
+            <img src="<?= base_url('/assets/img/banner3.jpg') ?>" alt="New York" class="d-block w-100">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    
     </div>
     <!-- end banner -->
 
@@ -118,7 +120,7 @@
                         <p>Makanan Kucing</p>
                         <h6 class="mb-3">Rp35.000</h6>
                     </div>
-                    <button type="button" class="btn" style="background-color: #816234;color:whitesmoke; padding:8px; border-radius:0px 0px 15px 15px;">Buy Now!</button>
+                    <a href="<?= base_url('/user/product') ?>" type="button" class="btn" style="background-color: #816234;color:whitesmoke; padding:8px; border-radius:0px 0px 15px 15px;">Detail</a>
                 </div>
             </div>
             <div class="col-md-3 d-flex justify-content-center" style="margin-top:15px;">
@@ -141,7 +143,7 @@
                         <p>Makanan Kucing</p>
                         <h6 class="mb-3">Rp500.000</h6>
                     </div>
-                    <button type="button" class="btn" style="background-color: #816234;color:whitesmoke; padding:8px; border-radius:0px 0px 15px 15px;">Buy Now!</button>
+                    <a href="<?= base_url('/user/product') ?>" type="button" class="btn" style="background-color: #816234;color:whitesmoke; padding:8px; border-radius:0px 0px 15px 15px;">Detail</a>
                 </div>
             </div>
             <div class="col-md-3 d-flex justify-content-center" style="margin-top:15px;">
@@ -164,7 +166,7 @@
                         <p>Vitamin Kucing</p>
                         <h6 class="mb-3">Rp125.000</h6>
                     </div>
-                    <button type="button" class="btn" style="background-color: #816234;color:whitesmoke; padding:8px; border-radius:0px 0px 15px 15px;">Buy Now!</button>
+                    <a href="<?= base_url('/user/product') ?>" type="button" class="btn" style="background-color: #816234;color:whitesmoke; padding:8px; border-radius:0px 0px 15px 15px;">Detail</a>
                 </div>
             </div>
         </div>

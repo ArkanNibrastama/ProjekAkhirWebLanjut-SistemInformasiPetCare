@@ -84,6 +84,15 @@ class UserController extends BaseController
         return view("user/profile", $data);
     }
 
+    public function bookingStatus(){
+        $data = [
+            'title' => 'Booking Status',
+            'booking_status' => $this->userModel->getUserBookingStatus(user_id())
+        ];
+        // dd($data);
+        return view("user/booking_status", $data);
+    }
+
     public function edit_profile()
 {
 

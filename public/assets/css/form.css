@@ -85,7 +85,6 @@ body{
     padding-right: 50px;
     /* background-color: #E4CEA0; */
     background-color: wheat;
-    border-radius: 0px 0px 15px 15px;
   }
   .nav-link{
     color: black;
@@ -132,5 +131,4 @@ body{
     margin-top:120px; 
     width:100%;
     background-color: wheat;
-    border-radius: 15px 15px 0px 0px;
   }

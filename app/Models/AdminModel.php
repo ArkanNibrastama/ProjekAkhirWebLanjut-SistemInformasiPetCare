@@ -71,4 +71,37 @@ class AdminModel extends Model
         return $this->update($id, $data);
     }
 
+    public function getTransactionPerMonth(){
+        return $this->db
+        ->query("SELECT MONTH(tanggal_transaksi) AS month, SUM(total_transaksi) AS total_transaksi
+        FROM transaksi
+        GROUP BY month;")
+        ->getResultArray();
+    }
+
+    public function getEarningPerMonth(){
+        return $this->db
+        ->query("SELECT MONTH(tanggal_transaksi) AS month, SUM(total_transaksi) AS total_transaksi
+        FROM transaksi
+        GROUP BY month
+        HAVING month =".date('m').";")
+        ->getResultArray();
+    }
+
+    public function getEarningAnnual(){
+        return $this->db
+        ->query("SELECT YEAR(tanggal_transaksi) AS year, SUM(total_transaksi) AS total_transaksi
+        FROM transaksi
+        GROUP BY year
+        HAVING year =".date('Y').";")
+        ->getResultArray();
+    }
+
+    public function getTotalBooking(){
+        return $this->db
+        ->query("SELECT COUNT(*) AS n_booking
+        FROM booking;")
+        ->getResultArray();
+    }
+
 }
