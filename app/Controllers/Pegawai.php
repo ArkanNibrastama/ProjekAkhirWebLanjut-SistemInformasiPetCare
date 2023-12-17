@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\AdminModel;
 use App\Models\BookingModel;
 use App\Models\ProductModel;
 use App\Models\InventarisModel;
@@ -13,19 +14,46 @@ class Pegawai extends BaseController
     public $ProductModel;
     public $InventarisModel;
     public $bookingModel;
+    public $adminModel;
 
     public function __construct()
     {
         $this->ProductModel = new ProductModel();
         $this->InventarisModel = new InventarisModel();
         $this->bookingModel = new BookingModel();
+        $this->adminModel = new AdminModel();
     }
 
     public function index()
     {
 
+        //array months
+        $list_months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        $months = [];
+        $current_month = (int)date('m');
+        //empty array value 
+        $values = [];
+
+        //looping as much as max month in db
+        for ($i = 0; $i < $current_month; $i++){
+            //append month in new array (earning_months)
+            $months[$i] = $list_months[$i];
+            //append array value with zero
+            $values[$i] = 0;
+        }
+        //looping array from eraning per month query
+        foreach ($this->adminModel->getTransactionPerMonth() as $t){
+            //append value based on the month (index:month-1)
+            $values[(int)$t['month']-1] = (int)$t['total_transaksi'];
+        }
+
         $data = [
-            'title' => 'Dashboard pegawai',
+            'title' => 'Dashboard',
+            'months' => json_encode($months),
+            'values' => json_encode($values),
+            'earning_per_month' => $this->adminModel->getEarningPerMonth()[0]['total_transaksi'],
+            'earning_annual' => $this->adminModel->getEarningAnnual()[0]['total_transaksi'],
+            'total_booking' => $this->adminModel->getTotalBooking()[0]['n_booking'],
         ];
         return view('Pegawai/index', $data);
     }
@@ -45,6 +73,14 @@ class Pegawai extends BaseController
     {
 
         $this->bookingModel->updateStatus($id_booking, ['status' => 2]);
+
+        return redirect()->to('pegawai/konfirmasi/');
+    }
+
+    public function cancelBooking($id_booking)
+    {
+
+        $this->bookingModel->updateStatus($id_booking, ['status' => 4]);
 
         return redirect()->to('pegawai/konfirmasi/');
     }
@@ -195,6 +231,18 @@ class Pegawai extends BaseController
                     'required' => '{field} tidak boleh kosong.',
                 ]
             ],
+            'category' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+                ],
+            'deskripsi' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} tidak boleh kosong.',
+                ]
+                ],
             'nama_product' => [
                 'rules' => 'required|is_unique[product.nama_product]',
                 'errors' => [
@@ -220,6 +268,8 @@ class Pegawai extends BaseController
         }
         $this->ProductModel->saveproduct([
             'nama_product' => $this->request->getVar('nama_product'),
+            'category' => $this->request->getVar('category'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
             'harga_product' => $this->request->getVar('harga_product'),
             'stok_product' => $this->request->getVar('stok_product'),
             'foto_product' => $foto,
@@ -257,6 +307,8 @@ class Pegawai extends BaseController
 
         $data = [
             'nama_product' => $this->request->getVar('nama_product'),
+            'category' => $this->request->getVar('category'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
             'harga_product' => $this->request->getVar('harga_product'),
             'stok_product' => $this->request->getVar('stok_product'),
             'foto_product' => $foto,

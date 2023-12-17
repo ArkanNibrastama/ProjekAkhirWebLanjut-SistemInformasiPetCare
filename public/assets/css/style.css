@@ -14,7 +14,6 @@ button, button:focus {
   padding-right: 50px;
   /* background-color: #E4CEA0; */
   background-color: wheat;
-  border-radius: 0px 0px 15px 15px;
 }
 .nav-link{
   color: black;
@@ -202,6 +201,5 @@ footer{
   /* background-color:#E4CEA0; */
   /* background-color:whitesmoke; */
   background-color: wheat;
-  border-radius: 15px 15px 0px 0px;
 }
 /*# sourceMappingURL=style.css.map */

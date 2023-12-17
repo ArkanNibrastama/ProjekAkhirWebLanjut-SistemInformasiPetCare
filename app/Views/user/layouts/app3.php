@@ -27,7 +27,7 @@
                 <div class="sidebar-brand-icon rotate-n-30">
                     <i class="fas fa-cat"></i>
                 </div>
-                <div class="sidebar-brand-text mx-100">Pet Care</div>
+                <div class="sidebar-brand-text mx-100">Sipetcare</div>
             </ul>
             </a>
 
@@ -52,10 +52,10 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-middle shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <!-- <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="<?= base_url('/user/bookingstatus') ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a> -->
+                                    Booking Status
+                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -79,7 +79,7 @@
     <!-- start footer -->
     <footer class="text-dark text-center py-3">
         <div class="container">
-            <p>&copy; 2023 PetCare. All rights reserved.</p>
+            <p>&copy; 2023 Sipetcare. All rights reserved.</p>
         </div>
     </footer>
     <!-- Logout Modal-->

@@ -87,7 +87,7 @@
                                     </div> -->
                                         <div class="mb-3">
                                         <label for="exampleFormControlTextarea1" class="form-label">Alamat</label>
-                                        <textarea name="alamat" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        <textarea name="alamat" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
                                         </div>
                                     <div class="col-6">
                                     <!-- product qty section -->  
@@ -107,7 +107,7 @@
                                                 <i class="fa fa-minus"></i>
                                                 </div>
                                             </div>
-                                            <input class="form-control quantity" min="0" name="jumlah" value=1 type="number" style="text-align: center;">
+                                            <input class="form-control quantity" min="1" name="jumlah" value=1 type="number" style="text-align: center;">
                                             <div class="input-group-append">
                                                 <div class="btn btn-outline-secondary btn-plus">
                                                 <i class="fa fa-plus"></i>

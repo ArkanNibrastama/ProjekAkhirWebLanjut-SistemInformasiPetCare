@@ -9,7 +9,7 @@
     <input type="text" id="nama_pemilik" name="nama_pemilik" required><br>
 
     <label for="nomor_telepon">Nomor Telepon:</label>
-    <input type="tel" id="nomor_telepon" name="nomor_telepon" required><br>
+    <input type="text" id="nomor_telepon" name="nomor_telepon" required><br>
 
     <label for="nama_hewan">Nama Hewan:</label>
     <input type="text" id="nama_hewan" name="nama_hewan" required><br>

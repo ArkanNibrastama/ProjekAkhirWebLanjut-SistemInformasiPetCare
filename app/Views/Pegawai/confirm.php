@@ -54,6 +54,7 @@
         <td><?= $d['nama_service'] ?></td>
         <td>
           <a href="<?= base_url('pegawai/konfirmasi/'.$d['id']) ?>" class="btn btn-success">Confirm</a>
+          <a href="<?= base_url('pegawai/cancel/'.$d['id']) ?>" class="btn btn-danger">Cancel</a>
         </td>
     </tr>
     <?php } ?>

@@ -22,15 +22,15 @@
 
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>"
-                                                name="username" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>" >
+                                                name="username" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>"
-                                               name="email" placeholder="<?=lang('Auth.email')?>" value="<?= old('email') ?>">
+                                               name="email" placeholder="<?=lang('Auth.email')?>" value="<?= old('email') ?>" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>"
-                                            name="password" placeholder="<?=lang('Auth.password')?>" autocomplete="off">
+                                            name="password" placeholder="<?=lang('Auth.password')?>" autocomplete="off" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-top: 50px;">Tambah</button>
                                     </form>

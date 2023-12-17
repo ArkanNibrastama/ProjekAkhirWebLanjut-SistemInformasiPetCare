@@ -33,7 +33,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-cat"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Pet Care</div>
+        <div class="sidebar-brand-text mx-3">Sipetcare</div>
       </a>
 
       <!-- Divider -->
@@ -144,7 +144,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; PetShop 2023</span>
+            <span>Copyright &copy; Sipetcare 2023</span>
           </div>
         </div>
       </footer>

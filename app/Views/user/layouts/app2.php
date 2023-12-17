@@ -27,10 +27,10 @@
         <div class="container-fluid" >
             <a class="sidebar-brand d-flex align-items-center justify-content-center">
             <ul class="nav nav-underline justify-content-end" style="font-size: 35px;">
-                <div class="sidebar-brand-icon rotate-n-30">
+                <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-cat"></i>
                 </div>
-                <div class="sidebar-brand-text mx-100">Pet Care</div>
+                <div class="sidebar-brand-text mx-100">Sipetcare</div>
             </ul>
             </a>
 
@@ -52,7 +52,7 @@
     <!-- start footer -->
     <footer class="text-dark text-center py-3">
         <div class="container">
-            <p>&copy; 2023 PetCare. All rights reserved.</p>
+            <p>&copy; 2023 Sipetcare. All rights reserved.</p>
         </div>
     </footer>
     <!-- end footer -->

@@ -24,9 +24,36 @@ class Admin extends BaseController
     }
     public function index(): string
     {
+        // dd($this->adminModel->getTransactionPerMonth());
+        //array months
+        $list_months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        $months = [];
+        $current_month = (int)date('m');
+        //empty array value 
+        $values = [];
+
+        //looping as much as max month in db
+        for ($i = 0; $i < $current_month; $i++){
+            //append month in new array (earning_months)
+            $months[$i] = $list_months[$i];
+            //append array value with zero
+            $values[$i] = 0;
+        }
+        //looping array from eraning per month query
+        foreach ($this->adminModel->getTransactionPerMonth() as $t){
+            //append value based on the month (index:month-1)
+            $values[(int)$t['month']-1] = (int)$t['total_transaksi'];
+        }
+
         $data = [
             'title' => 'Dashboard',
+            'months' => json_encode($months),
+            'values' => json_encode($values),
+            'earning_per_month' => $this->adminModel->getEarningPerMonth()[0]['total_transaksi'],
+            'earning_annual' => $this->adminModel->getEarningAnnual()[0]['total_transaksi'],
+            'total_booking' => $this->adminModel->getTotalBooking()[0]['n_booking'],
         ];
+        // dd( $data);
         return view('admin/index', $data);
     }
     public function listInventaris(): string
@@ -35,6 +62,7 @@ class Admin extends BaseController
             'title' => 'List Inventaris',
             'inventaris' => $this->InventarisModel->getInventaris(),
         ];
+        
         return view('admin/inventaris', $data);
     }
     public function createInventaris(): string
@@ -185,6 +213,8 @@ class Admin extends BaseController
         $this->ProductModel->saveproduct([
             'nama_product' => $this->request->getVar('nama_product'),
             'harga_product' => $this->request->getVar('harga_product'),
+            'category' => $this->request->getVar('category'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
             'stok_product' => $this->request->getVar('stok_product'),
             'foto_product' => $foto,
 
@@ -221,8 +251,11 @@ class Admin extends BaseController
 
         $data = [
             'nama_product' => $this->request->getVar('nama_product'),
+            'category' => $this->request->getVar('category'),
+            'deskripsi' => $this->request->getVar('deskripsi'),
             'harga_product' => $this->request->getVar('harga_product'),
             'stok_product' => $this->request->getVar('stok_product'),
+            
             'foto_product' => $foto,
         ];
 
